@@ -1,0 +1,62 @@
+## Backend (Smart Contracts & IPFS)
+
+### 1. Setting Up Development Environment:
+- **a.** Install Node.js and NPM (if not already installed).
+- **b.** Install Truffle framework: `npm install -g truffle`.
+- **c.** Install Ganache: Download and install from the Ganache website.
+- **d.** Set up Metamask: Install the Metamask browser extension and set it up with a new account.
+
+### 2. Writing the Smart Contracts:
+- **a.** Initialize a new Truffle project: `truffle init`.
+- **b.** Write the ERC-721 contract (NFT) for the soccer players in `./contracts/PlayerToken.sol`.
+- **c.** Write the ERC-20 contract for the Fantasy Token in `./contracts/FantasyToken.sol`.
+- **d.** Create migration scripts in `./migrations/` to deploy the contracts.
+
+### 3. Testing the Smart Contracts:
+- **a.** Run Ganache and note down the RPC server details.
+- **b.** Configure `truffle-config.js` to connect to Ganache.
+- **c.** Write test cases using Truffle's testing framework in the `./test/` directory.
+- **d.** Run the tests using: `truffle test`.
+
+### 4. Deploying the Smart Contracts:
+- **a.** Run `truffle migrate` to deploy contracts on Ganache.
+- **b.** Ensure Metamask is connected to the same network.
+- **c.** (Later) Redeploy contracts on Ethereum's testnet/mainnet using `truffle migrate --network <network_name>`.
+
+### 5. Setting Up IPFS:
+- **a.** Install IPFS locally or use a service like Pinata.
+- **b.** Initialize IPFS: `ipfs init`.
+- **c.** Start IPFS: `ipfs daemon`.
+- **d.** Make note of the IPFS gateway and API ports.
+
+## Frontend (Streamlit & Web3.py)
+
+### 1. Setting Up Streamlit:
+- **a.** Install Streamlit: `pip install streamlit`.
+- **b.** Install web3.py: `pip install web3`.
+
+### 2. Setting Up The App:
+- **a.** Create a new directory for the frontend and navigate to it.
+- **b.** Create a new Python script, e.g., `app.py`.
+
+### 3. Building The Interface:
+- **a.** Set up Streamlit layout with placeholders for player display, purchase/selling options, team display, and user scores.
+- **b.** Connect to Ethereum using web3.py. Ensure you can query the deployed contracts.
+  
+### 4. Integrating IPFS:
+- **a.** Use the `ipfshttpclient` library to interact with IPFS: `pip install ipfshttpclient`.
+- **b.** In `app.py`, implement methods to fetch player data from IPFS using hashes stored in NFTs.
+
+### 5. Building Features:
+- **a.** Display all available players: Fetch player NFTs from the smart contract, get their IPFS hashes, fetch metadata from IPFS, and display.
+- **b.** Buying/Selling Players: Implement methods to trigger the purchase or sale of a player token.
+- **c.** Display User's Team: Show all player NFTs owned by the current user.
+- **d.** Update Players' Stats: Admin feature to upload new stats to IPFS and update the NFT's IPFS hash.
+
+### 6. Launching The App:
+- **a.** Run the Streamlit app: `streamlit run app.py`.
+- **b.** Use the interface to ensure all functionalities are working: purchasing players, viewing player data, updating stats, etc.
+
+### 7. Testing & Deployment:
+- **a.** Thoroughly test all functionalities.
+- **b.** Consider deploying the Streamlit app on platforms like Streamlit Sharing, Heroku, or AWS for wider access.
