@@ -4,8 +4,10 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "./HodlerToken.sol";
 
-contract PlayerToken is ERC721Enumerable {
+contract PlayerToken is ERC721Enumerable, Ownable {
     using Counters for Counters.Counter;
     using SafeMath for uint256;
 
@@ -27,7 +29,11 @@ contract PlayerToken is ERC721Enumerable {
     mapping(uint256 => string) private _tokenURIs;
     mapping(uint256 => PlayerAttributes) public playerAttributes;
 
-    constructor() ERC721("PlayerToken", "PLAYR") {}
+    HodlerToken public hodlerToken; // Reference to the HodlerToken contract
+
+    constructor(address _hodlerTokenAddress) ERC721("PlayerToken", "PLAYR") {
+        hodlerToken = HodlerToken(_hodlerTokenAddress);
+    }
 
     function mint(address player, string memory tokenURI, PlayerAttributes memory attributes) public payable returns (uint256) {
         require(msg.value == PRICE_IN_ETH, "Incorrect ETH amount sent");
@@ -63,8 +69,20 @@ contract PlayerToken is ERC721Enumerable {
         _tokenURIs[tokenId] = _tokenURI;
     }
 
-    function updateFantasyPoints(uint256 tokenId, uint256 points) public {
+    function updateFantasyPoints(uint256 tokenId, uint256 points) public onlyOwner {
         PlayerAttributes storage attributes = playerAttributes[tokenId];
         attributes.fantasyPoints += points;
+
+        // Reward the user with Hodler tokens based on the points earned
+        rewardHodlerTokens(msg.sender, points);
+    }
+    
+    // Function to reward users with Hodler tokens
+    function rewardHodlerTokens(address player, uint256 points) internal {
+        // Calculate the number of Hodler tokens to reward based on points
+        uint256 hodlerReward = points;
+
+        // Transfer Hodler tokens to the user
+        hodlerToken.mint(player, hodlerReward);
     }
 }
