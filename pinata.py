@@ -2,7 +2,7 @@ import os
 import json
 import requests
 from dotenv import load_dotenv
-load_dotenv('SAMPE.env')
+load_dotenv('SAMPLE.env')
 
 json_headers = {
     "Content-Type": "application/json",
@@ -25,16 +25,29 @@ def pin_file_to_ipfs(data):
         files={'file': data},
         headers=file_headers
     )
-    print(r.json())
-    ipfs_hash = r.json()["IpfsHash"]
+    response_json = r.json()
+    print(response_json)  # You already have this, which is good for debugging.
+    
+    if "IpfsHash" not in response_json:
+        raise Exception("Unexpected response format from Pinata. 'IpfsHash' key not found. Response:", response_json)
+        
+    ipfs_hash = response_json["IpfsHash"]
     return ipfs_hash
 
-def pin_json_to_ipfs(json):
+def pin_json_to_ipfs(data):
+    # Convert the data to a serialized JSON string
+    json_data = json.dumps(data)
+
     r = requests.post(
         "https://api.pinata.cloud/pinning/pinJSONToIPFS",
-        data=json,
-        headers=json_headers
+        data=json_data,  # Note: you're sending the serialized JSON string now
+        headers=json_headers  # Make sure this has "Content-Type": "application/json"
     )
-    print(r.json())
-    ipfs_hash = r.json()["IpfsHash"]
+    response_json = r.json()
+    print(response_json)  # For debugging purposes.
+    
+    if "IpfsHash" not in response_json:
+        raise Exception("Unexpected response format from Pinata. 'IpfsHash' key not found. Response:", response_json)
+
+    ipfs_hash = response_json["IpfsHash"]
     return ipfs_hash
