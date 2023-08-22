@@ -1,31 +1,5 @@
 [
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "playerAddress",
-				"type": "address"
-			}
-		],
-		"name": "addToWaitlist",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "playerAddress",
-				"type": "address"
-			}
-		],
-		"name": "deregisterPlayer",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -95,14 +69,9 @@
 				"internalType": "address",
 				"name": "playerAddress",
 				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "ipfsHash",
-				"type": "string"
 			}
 		],
-		"name": "registerPlayer",
+		"name": "addToWaitlist",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -115,27 +84,7 @@
 				"type": "address"
 			}
 		],
-		"name": "removeFromWaitlist",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
+		"name": "deregisterPlayer",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -232,6 +181,57 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "playerAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "ipfsHash",
+				"type": "string"
+			}
+		],
+		"name": "registerPlayer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "playerAddress",
+				"type": "address"
+			}
+		],
+		"name": "removeFromWaitlist",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

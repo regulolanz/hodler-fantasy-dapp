@@ -6,8 +6,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract PlayerRegistration is Ownable {
     // Structure to store Player's information
     struct PlayerInfo {
-        string ipfsHash; // IPFS hash containing player's personal details
-        bool isRegistered;
+        string ipfsHash;      // IPFS hash containing player's personal details
+        bool isRegistered;    // Flag to check if the player is registered
     }
 
     // Mapping from player's address to their information
@@ -36,23 +36,23 @@ contract PlayerRegistration is Ownable {
     // Register a player - Can only be done if they are on the waitlist
     function registerPlayer(address playerAddress, string memory ipfsHash) public onlyOwner {
         require(isWaitlisted[playerAddress], "Player is not on the waitlist");
-        PlayerInfo storage player = playerInfos[playerAddress];
-        require(!player.isRegistered, "Player is already registered");
+        require(!playerInfos[playerAddress].isRegistered, "Player is already registered");
 
-        player.ipfsHash = ipfsHash;
-        player.isRegistered = true;
-        
-        // Optionally, once registered, you can remove them from the waitlist
+        playerInfos[playerAddress] = PlayerInfo({
+            ipfsHash: ipfsHash,
+            isRegistered: true
+        });
+
+        // Once registered, remove them from the waitlist
         isWaitlisted[playerAddress] = false;
 
         emit PlayerRegistered(playerAddress, ipfsHash);
     }
 
     function deregisterPlayer(address playerAddress) public onlyOwner {
-        PlayerInfo storage player = playerInfos[playerAddress];
-        require(player.isRegistered, "Player is not registered");
+        require(playerInfos[playerAddress].isRegistered, "Player is not registered");
 
-        player.isRegistered = false;
+        playerInfos[playerAddress].isRegistered = false;
         emit PlayerDeregistered(playerAddress);
     }
 
@@ -65,10 +65,3 @@ contract PlayerRegistration is Ownable {
         return playerInfos[playerAddress].ipfsHash;
     }
 }
-
-
-// Note:
-    // The IPFS hash contains the detailed form information of the player (Name, Last Name, Nationality, DOB, Email, Phone, Address (ENS Domain), and Selfie).
-    // A player can be registered only if they are on the waitlist. Once registered, they can optionally be removed from the waitlist.
-    // Personal data like emails, phone numbers, addresses, and selfies should be treated with care, and the IPFS content should probably be encrypted. Handling this data requires careful consideration due to privacy concerns and GDPR compliance.
-    // Next, you can proceed to integrate this contract with the rest of your dApp components, ensuring you maintain the utmost data security and compliance standards throughout the application.
