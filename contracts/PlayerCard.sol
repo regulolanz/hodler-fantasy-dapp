@@ -3,12 +3,15 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
 import "./PlayerRegistration.sol"; // Import PlayerRegistration contract
 
-contract PlayerCard is ERC721Enumerable, Ownable {
+contract PlayerCard is ERC721Enumerable, AccessControl {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
+
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    bytes32 public constant UPDATER_ROLE = keccak256("UPDATER_ROLE");
 
     PlayerRegistration public playerRegistration; // Reference to the PlayerRegistration contract
 
@@ -32,7 +35,15 @@ contract PlayerCard is ERC721Enumerable, Ownable {
     }
 
     constructor(address _playerRegistrationAddress) ERC721("PlayerCard", "PCARD") {
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _setupRole(MINTER_ROLE, msg.sender);
+        _setupRole(UPDATER_ROLE, msg.sender);
+        
         playerRegistration = PlayerRegistration(_playerRegistrationAddress);
+    }
+    
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721Enumerable, AccessControl) returns (bool) {
+        return super.supportsInterface(interfaceId);
     }
 
     function mintCard(string memory team, string memory position, string memory league, string memory season, string memory profilePicture) external onlyRegisteredPlayer {
@@ -54,17 +65,16 @@ contract PlayerCard is ERC721Enumerable, Ownable {
         _tokenIdCounter.increment();
     }
 
-    function endSeasonMinting() external onlyOwner {
+    function endSeasonMinting() external onlyRole(DEFAULT_ADMIN_ROLE) {
         canMint = false;
     }
 
-    function updateFantasyPoints(uint256 tokenId, uint256 points) external onlyOwner {
+    function updateFantasyPoints(uint256 tokenId, uint256 points) external onlyRole(UPDATER_ROLE) {
         require(cards[tokenId].isActive, "This card is from a previous season");
         
         cards[tokenId].fantasyPoints += points;
 
-        // Reward H3 tokens logic here. 
-        // For this, you need to integrate with your H3 token contract. 
-        // e.g., h3TokenContract.mint(cards[tokenId].playerAddress, points);
+        // Reward logic can be added here. 
+        // e.g., rewardTokenContract.mint(cards[tokenId].playerAddress, points);
     }
 }
