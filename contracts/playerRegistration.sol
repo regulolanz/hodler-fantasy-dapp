@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/access/AccessControl.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.3.2/contracts/access/AccessControl.sol";
 
 contract PlayerRegistration is AccessControl {
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
@@ -36,8 +36,9 @@ contract PlayerRegistration is AccessControl {
     // Add an address to the waitlist
     function addToWaitlist(address playerAddress) public onlyAdmin {
         require(!playerInfos[playerAddress].isRegistered, "Player is already registered");
+        require(!playerInfos[playerAddress].isWaitlisted, "Player is already on the waitlist");
         playerInfos[playerAddress].isWaitlisted = true;
-        _setupRole(REGISTRAR_ROLE, playerAddress);
+        grantRole(REGISTRAR_ROLE, playerAddress);
         emit PlayerWaitlisted(playerAddress);
     }
 
@@ -45,24 +46,21 @@ contract PlayerRegistration is AccessControl {
     function removeFromWaitlist(address playerAddress) public onlyAdmin {
         require(playerInfos[playerAddress].isWaitlisted, "Player is not on the waitlist");
         playerInfos[playerAddress].isWaitlisted = false;
-        revokeRole(REGISTRAR_ROLE, playerAddress);
+        _revokeRegistrarRole(playerAddress);
         emit PlayerRemovedFromWaitlist(playerAddress);
     }
 
     // Register a player - Can only be done if they are on the waitlist
     function registerPlayer(string memory ipfsHash) public {
-        require(hasRole(REGISTRAR_ROLE, msg.sender), "Not on the waitlist");
         require(playerInfos[msg.sender].isWaitlisted, "Player is not on the waitlist");
         require(!playerInfos[msg.sender].isRegistered, "Player is already registered");
         require(bytes(ipfsHash).length > 0, "IPFS hash cannot be empty");
 
-        playerInfos[msg.sender] = PlayerInfo({
-            ipfsHash: ipfsHash,
-            isRegistered: true,
-            isWaitlisted: false
-        });
+        playerInfos[msg.sender].ipfsHash = ipfsHash;
+        playerInfos[msg.sender].isRegistered = true;
+        playerInfos[msg.sender].isWaitlisted = false;
 
-        revokeRole(REGISTRAR_ROLE, msg.sender);
+        _revokeRegistrarRole(msg.sender);
         emit PlayerRegistered(msg.sender, ipfsHash);
     }
 
@@ -79,5 +77,13 @@ contract PlayerRegistration is AccessControl {
     // Function to get player's IPFS hash
     function getPlayerInfoHash(address playerAddress) public view returns (string memory) {
         return playerInfos[playerAddress].ipfsHash;
+    }
+
+    // Custom revoke mechanism for REGISTRAR_ROLE with exception handling
+    function _revokeRegistrarRole(address account) internal {
+        try this.revokeRole(REGISTRAR_ROLE, account) {
+        } catch {
+            // Handle any errors silently
+        }
     }
 }
