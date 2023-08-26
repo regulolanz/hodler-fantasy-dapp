@@ -2,12 +2,14 @@
 pragma solidity ^0.8.0;
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.3.2/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.3.2/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.3.2/contracts/access/AccessControl.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.3.2/contracts/security/Pausable.sol";
 import "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./playerRegistration.sol";  // Import the playerRegistration contract
 
-contract PlayerCard is ERC721Enumerable, Ownable, Pausable {
+contract PlayerCard is ERC721Enumerable, AccessControl, Pausable {
+
+    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
 
     struct Card {
         address playerAddress;
@@ -30,17 +32,23 @@ contract PlayerCard is ERC721Enumerable, Ownable, Pausable {
     event CardPurchased(address indexed buyer, uint256 cardId, uint256 salePrice);
     event FantasyPointsUpdated(uint256 cardId, uint256 newFantasyPoints);
 
-    constructor(address _priceFeed, address _playerRegistry) ERC721("PlayerCard", "PCARD") {
-        priceFeed = AggregatorV3Interface(_priceFeed);
-        playerRegistry = PlayerRegistration(_playerRegistry);
-    }
-
-    modifier onlyRegisteredPlayer(address _player) {
-        require(playerRegistry.isPlayerRegistered(_player), "Player is not registered");
+    modifier onlyAdmin() {
+        require(hasRole(ADMIN_ROLE, msg.sender), "Not an admin");
         _;
     }
 
-    function mintCard(string memory team, string memory position, string memory league, string memory season, string memory profilePicture, uint256 fantasyPoints) public payable onlyRegisteredPlayer(msg.sender) whenNotPaused {
+    constructor(address _priceFeed, address _playerRegistry) ERC721("PlayerCard", "PCARD") {
+        priceFeed = AggregatorV3Interface(_priceFeed);
+        playerRegistry = PlayerRegistration(_playerRegistry);
+
+        // Setup roles
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _setupRole(ADMIN_ROLE, msg.sender);
+    }
+
+    function mintCard(string memory team, string memory position, string memory league, string memory season, string memory profilePicture, uint256 fantasyPoints) public payable whenNotPaused {
+        require(playerRegistry.isPlayerRegistered(msg.sender), "Player is not registered");
+        
         uint256 currentEthPriceInUsd = getCurrentPrice();
         uint256 requiredFeeInEth = (MINTING_FEE_IN_USD * 1 ether) / currentEthPriceInUsd;
 
@@ -62,7 +70,7 @@ contract PlayerCard is ERC721Enumerable, Ownable, Pausable {
         _mint(msg.sender, newCardId);
         emit CardMinted(msg.sender, newCardId);
 
-        payable(owner()).transfer(msg.value); // Transfer the minting fee to the contract owner
+        payable(msg.sender).transfer(msg.value); // Transfer the minting fee to the contract owner
     }
 
     function setSalePrice(uint256 cardId, uint256 price) public {
@@ -83,7 +91,7 @@ contract PlayerCard is ERC721Enumerable, Ownable, Pausable {
         cards[cardId].salePrice = 0; // Reset the sale price
     }
 
-    function updateFantasyPoints(uint256 cardId, uint256 newPoints) public onlyOwner {
+    function updateFantasyPoints(uint256 cardId, uint256 newPoints) public onlyAdmin {
         cards[cardId].fantasyPoints = newPoints;
         emit FantasyPointsUpdated(cardId, newPoints);
     }
@@ -97,4 +105,9 @@ contract PlayerCard is ERC721Enumerable, Ownable, Pausable {
     uint256 currentEthPriceInUsd = getCurrentPrice();
     return (MINTING_FEE_IN_USD * 1e18) / currentEthPriceInUsd;
     }
+
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721Enumerable, AccessControl) returns (bool) {
+    return super.supportsInterface(interfaceId);
+    }
 }
+
