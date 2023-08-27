@@ -6,20 +6,26 @@ from web3 import Web3
 import streamlit as st
 from pathlib import Path
 from dotenv import load_dotenv
+import requests
 
 from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json
 
-load_dotenv('../SAMPLE.env')
+load_dotenv('SAMPLE.env')
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
 MINTING_FEE_IN_USD = 50
 
+position_options = ["GOA", "DEF", "MID", "STK"]
+league_options = ["UPSL_Division_1", "USSL_Elite", "PFL_Division_1"]
+season_options = ["2023_Spring", "2023_Fall"]
+team_options = ["Hodler Miami FC"]
+
 def load_contracts():
     # Load ABIs
-    with open(Path('../metadata/player_registration_abi.json')) as f:
+    with open(Path('./contracts/compiled/registration_abi.json')) as f:
         player_registration_abi = json.load(f)
-
-    with open(Path('../metadata/player_card_abi.json')) as f:
+    
+    with open(Path('./contracts/compiled/player_card_abi.json')) as f:
         player_card_abi = json.load(f)
 
     # Contract addresses
@@ -88,11 +94,6 @@ def register_player():
 def mint_player_card():
     st.markdown("## Mint a Player Card")
     
-    position_options = ["GOA", "DEF", "MID", "STK"]
-    league_options = ["UPSL_Division_1", "USSL_Elite", "PFL_Division_1"]
-    season_options = ["2023_Spring", "2023_Fall"]
-    team_options = ["Hodler Miami FC"]
-
     team = st.selectbox("Select player's team", options=team_options)
     position = st.selectbox("Select player's position", options=position_options)
     league = st.selectbox("Select league", options=league_options)
@@ -129,3 +130,29 @@ if is_registered:
     mint_player_card()
 elif is_waitlisted:
     register_player()
+    
+def update_fantasy_points():  # only owner 
+    st.markdown("## Update Fantasy Points")
+    
+    player_name = st.text_input("Enter the player's full name")
+    league = st.selectbox("Select league", options=league_options)
+    season = st.selectbox("Select season", options=season_options)
+    team = st.selectbox("Select player's team", options=team_options)
+    
+    if st.button("Update Fantasy Points"):
+        # Prepare the data to send in the request
+        data = {
+            "playerName": player_name,
+            "league": league,
+            "season": season,
+            "team": team,
+            # Add more data as needed
+        }
+        
+        # Define the API Gateway URL
+        api_gateway_url = "https://mdaq0itlok.execute-api.us-east-2.amazonaws.com/prod/chainlink" # replace with your gateway from GET method
+        
+        # Send an HTTP GET request to the API Gateway
+        response = requests.get(api_gateway_url, json=data)
+        
+       # Needs interaction with PlayerCard contract and call updateFantasyPoints function
