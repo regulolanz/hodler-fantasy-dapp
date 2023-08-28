@@ -8,31 +8,29 @@ from pathlib import Path
 from dotenv import load_dotenv
 import requests
 
-from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json
+from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json, fetch_from_ipfs
 
-load_dotenv('SAMPLE.env')
+# Initialize environment and web3
+load_dotenv('../SAMPLE.env')
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
+# Constants
 MINTING_FEE_IN_USD = 50
-
 position_options = ["GOA", "DEF", "MID", "STK"]
 league_options = ["UPSL_Division_1", "USSL_Elite", "PFL_Division_1"]
-season_options = ["2023_Spring", "2023_Fall"]
 team_options = ["Hodler Miami FC"]
 
+# ===================== Contract Initialization =====================
 def load_contracts():
-    # Load ABIs
-    with open(Path('./contracts/compiled/registration_abi.json')) as f:
+    with open(Path('../metadata/player_registration_abi.json')) as f:
         player_registration_abi = json.load(f)
     
-    with open(Path('./contracts/compiled/player_card_abi.json')) as f:
+    with open(Path('../metadata/player_card_abi.json')) as f:
         player_card_abi = json.load(f)
 
-    # Contract addresses
     player_registration_address = os.getenv("PLAYER_REGISTRATION_CONTRACT_ADDRESS")
     player_card_address = os.getenv("PLAYER_CARD_CONTRACT_ADDRESS")
 
-    # Create contracts
     player_registration_contract = w3.eth.contract(
         address=player_registration_address,
         abi=player_registration_abi
@@ -47,6 +45,7 @@ def load_contracts():
 
 player_registration_contract, player_card_contract = load_contracts()
 
+# ===================== Player Registration =====================
 def register_player():
     st.markdown("## Register a New Player")
     
@@ -91,6 +90,7 @@ def register_player():
         except Exception as e:
             st.error(f"An unexpected error occurred: {e}")
 
+# ===================== Player Card Minting =====================
 def mint_player_card():
     st.markdown("## Mint a Player Card")
     
@@ -115,23 +115,47 @@ def mint_player_card():
         except Exception as e:
             st.error(f"An unexpected error occurred: {e}")
 
-st.title("Fantasy Soccer Player Registration")
-address = st.selectbox("Select Account", options=w3.eth.accounts)
+# Global variable to maintain a mapping of card ID to player name
+card_id_to_player_name = {}
 
-# Check if the player is registered
-is_registered = player_registration_contract.functions.isPlayerRegistered(address).call()
+# ===================== Fetch Player Data for All Cards =====================
+def fetch_player_data_for_all_cards():
+    # Fetch all card IDs (assuming you have a function in the contract to do this or you keep track in the app)
+    all_card_ids = player_card_contract.functions.getAllCardIds().call()
 
-# Check if the account has the REGISTRAR_ROLE
-REGISTRAR_ROLE = player_registration_contract.functions.REGISTRAR_ROLE().call()
-is_waitlisted = player_registration_contract.functions.playerInfos(address).call()[2]
+    # Mapping to store card ID to player name
+    card_id_to_player_name = {}
 
-# Logic to display registration, minting, and other options
-if is_registered:
-    mint_player_card()
-elif is_waitlisted:
-    register_player()
+    for card_id in all_card_ids:
+        ipfs_hash = player_card_contract.functions.getIPFSHashForCard(card_id).call()
+        player_data = fetch_from_ipfs(ipfs_hash)  # This is a hypothetical function to fetch data from IPFS
+        card_id_to_player_name[card_id] = player_data["name"]  # Assuming the name is stored with the key "name" in IPFS
+
+    return card_id_to_player_name
+
+# ===================== Fantasy Points Update =====================
+def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
+    # Find the card IDs using the mapping
+    card_ids_for_player = [key for key, value in card_id_to_player_name.items() if value == player_name]
     
-def update_fantasy_points():  # only owner 
+    if not card_ids_for_player:
+        st.error(f"Couldn't find any cards associated with the name {player_name}")
+        return
+
+    for card_id in card_ids_for_player:
+        card_data = player_card_contract.functions.cards(card_id).call()
+        if card_data["isActive"] and card_data["league"] == league and card_data["season"] == season:
+            try:
+                tx_hash = player_card_contract.functions.updateFantasyPoints(card_id, fantasy_points).transact({'from': address})
+                receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+                st.success(f"Fantasy points updated on-chain for card ID {card_id}!")
+                st.write(dict(receipt))
+            except ValueError as ve:
+                st.error(f"Transaction error for card ID {card_id}: {ve}")
+            except Exception as e:
+                st.error(f"An unexpected error occurred for card ID {card_id}: {e}")
+
+def update_fantasy_points():
     st.markdown("## Update Fantasy Points")
     
     player_name = st.text_input("Enter the player's full name")
@@ -145,14 +169,48 @@ def update_fantasy_points():  # only owner
             "playerName": player_name,
             "league": league,
             "season": season,
-            "team": team,
-            # Add more data as needed
+            "team": team
         }
         
         # Define the API Gateway URL
-        api_gateway_url = "https://mdaq0itlok.execute-api.us-east-2.amazonaws.com/prod/chainlink" # replace with your gateway from GET method
+        api_gateway_url = "https://mdaq0itlok.execute-api.us-east-2.amazonaws.com/prod/chainlink"
         
         # Send an HTTP GET request to the API Gateway
-        response = requests.get(api_gateway_url, json=data)
-        
-       # Needs interaction with PlayerCard contract and call updateFantasyPoints function
+        api_response = requests.get(api_gateway_url, json=data)
+    
+        if api_response.status_code == 200:
+            response_data = api_response.json()
+            if player_name in response_data:
+                fantasy_points = response_data[player_name]["Fantasy Points"]
+                update_fantasy_points_on_chain(player_name, fantasy_points)
+            else:
+                st.error(f"Error fetching data for {player_name}")
+        else:
+            st.error(f"API error: {api_response.text}")
+
+# ===================== Display All Registered Players =====================
+def display_all_players():
+    st.markdown("## List of Registered Players")
+    for player_address in w3.eth.accounts:
+        if player_registration_contract.functions.isPlayerRegistered(player_address).call():
+            player_info = player_registration_contract.functions.playerInfos(player_address).call()
+            st.write(f"Player Number: {player_info['playerNumber']} - Address: {player_address}")
+
+# ===================== Main Streamlit App =====================
+st.title("Fantasy Soccer Player Registration")
+address = st.selectbox("Select Account", options=w3.eth.accounts)
+
+is_registered = player_registration_contract.functions.isPlayerRegistered(address).call()
+REGISTRAR_ROLE = player_registration_contract.functions.REGISTRAR_ROLE().call()
+is_waitlisted = player_registration_contract.functions.playerInfos(address).call()[2]
+
+if is_registered:
+    mint_player_card()
+elif is_waitlisted:
+    register_player()
+    st.success(f"Your player number is: {player_registration_contract.functions.playerInfos(address).call()['playerNumber']}")
+
+display_all_players()
+    
+# Update the mapping when the app starts
+card_id_to_player_name = fetch_player_data_for_all_cards()

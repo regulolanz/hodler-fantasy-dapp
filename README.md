@@ -1,227 +1,213 @@
 # hodler-fantasy-dapp
-A decentralized fantasy soccer platform powered by Ethereum and IPFS, where users build dynamic teams using tokenized players (Dynamic NFTs). These Dynamic NFTs, representing player cards, can update their fantasy points after each game, reflecting the real-world performance of the players.
+
+A decentralized fantasy soccer platform powered by Ethereum and IPFS. Users can build dynamic teams using tokenized players, represented as Dynamic NFTs. These Dynamic NFTs, in the form of player cards, can have their fantasy points updated post each game, mirroring the real-world performance of the players.
+
+## Table of Contents
+
+1. [Project Description](#project-description)
+   - [Smart Contracts](#smart-contracts)
+     - [`playerRegistration.sol`](#playerregistrationsol)
+     - [`playerCard.sol`](#playercardsol)
+   - [Backend Service: `app.py`](#backend-service-apppy)
+   
+2. [Application Flow](#application-flow)
+
+3. [Setting Up and Deploying Smart Contracts](#setting-up-and-deploying-smart-contracts-using-ganache-and-remix)
+   - [Install nvm (Node Version Manager)](#install-nvm-node-version-manager)
+   - [Install Ganache](#install-ganache)
+   - [Setting up Infura](#setting-up-infura)
+   - [Run Ganache with Infura](#run-ganache-with-infura)
+   - [Deploying Contracts with Remix](#deploying-contracts-with-remix)
+
+4. [Deployment Media](#deployment-media)
+   - [Deploying Smart Contracts](#deploying-smart-contracts)
+   - [Streamlit Interface Interactions](#streamlit-interface-interactions)
+
+5. [Roles and Permissions in the PlayerRegistration Contract](#roles-and-permissions-in-the-playerregistration-contract)
+
+6. [Configuration File Explanation (`SAMPLE.env`)](#configuration-file-explanation-sampleenv)
+
+7. [Setup AWS Services (API Gateway and S3)](#setup-aws-services-api-gateway-and-s3)
+   - [Setting up S3 Bucket](#setting-up-s3-bucket)
+   - [Setting up API Gateway](#setting-up-api-gateway)
 
 ## Project Description
 
-The `hodler-fantasy-dapp` offers a unique blend of fantasy soccer and blockchain technology. Users can own, trade, and compete using tokenized player cards. These cards aren't static; their value and attributes (like fantasy points) can change based on real-world events, thanks to the integration with Chainlink oracles.
+The `hodler-fantasy-dapp` offers a blend of fantasy soccer and blockchain technology. Users own, trade, and compete using tokenized player cards. These cards are not static; their value and attributes (like fantasy points) can change based on real-world events, thanks to integration with Chainlink oracles.
 
 ### Smart Contracts:
 
 #### 1. `playerRegistration.sol`:
 
-**Purpose**:  
-This contract manages the registration of players on the platform.
-
-**Key Features**:
-- Allows players to be added to a waitlist.
-- Enables players on the waitlist to register themselves using their personal details stored on IPFS.
-- Provides roles for admin and registrar to manage registrations.
+- **Purpose**: Manages the registration of players on the platform.
+- **Key Features**:
+  - Add players to a waitlist.
+  - Register players on the waitlist using their IPFS-stored personal details.
+  - Role-based management for registrations.
   
 #### 2. `playerCard.sol`:
 
-**Purpose**:  
-Handles the tokenization of players into dynamic NFTs (player cards) and manages the attributes associated with each card.
-
-**Key Features**:
-- Allows users to mint new player cards if they are registered players.
-- Each card can have its fantasy points updated, making them dynamic.
-- Player cards can be listed for sale and purchased by others.
-- Integrates with Chainlink oracles to get the current ETH price, which helps in calculating the minting fee.
+- **Purpose**: Tokenizes players into dynamic NFTs (player cards) and manages the attributes of each card.
+- **Key Features**:
+  - Mint new player cards for registered players.
+  - Update fantasy points of the cards, making them dynamic.
+  - List player cards for sale and allow purchases.
+  - Integrate with Chainlink oracles for current ETH price for minting fee calculations.
 
 ### Backend Service:
 
 #### `app.py`:
 
-**Purpose**:  
-Serves as the backend service for the platform, interfacing with the Ethereum blockchain to facilitate user interactions.
+- **Purpose**: Serves as the backend, interfacing with Ethereum to facilitate user interactions.
+- **Key Features**:
+  - Register players, capturing their details and selfie.
+  - UI for minting player cards.
+  - Interaction with smart contracts using `web3.py`.
+  - Integration with IPFS through `pinata` for off-chain data storage.
 
-**Key Features**:
-- Allows players to register themselves, providing their details and a selfie.
-- Offers a UI for users to mint their player cards.
-- Interacts with the smart contracts using the web3.py library.
-- Integrates with IPFS through the `pinata` module to store and retrieve off-chain data.
-  
 ---
+
+## Application Flow
+
+1. **Player Registration**: 
+   - Players, once waitlisted by the admin, can register themselves through the Streamlit interface.
+   - They need to provide personal details and upload a selfie.
+   - This data is stored on IPFS, and only the hash of this data is stored on the Ethereum blockchain to ensure data integrity and privacy.
+
+2. **Minting Player Cards**: 
+   - Once registered, players can mint their own player cards.
+   - These cards represent the player's profile as NFTs on the blockchain.
+   - Fantasy points are initialized to zero during minting and can be updated later based on player performance.
+
+3. **Updating Fantasy Points**: 
+   - After every game, an external system updates the fantasy points of the players based on their performance.
+   - This data is then stored in an S3 bucket in a JSON format.
+   - Through the Streamlit interface, users can trigger a Chainlink oracle to fetch the updated fantasy points for players from the S3 bucket and update the respective player cards on the Ethereum blockchain.
+
+---
+
+## Deployment and Setup
+
+This section guides you through the deployment of smart contracts and the setup of various tools and services required.
 
 ### Setting Up and Deploying Smart Contracts using Ganache and Remix
 
-When developing Ethereum applications, especially those that utilize Chainlink Oracle Price Feeds, it's important to have an environment that mimics the mainnet, especially since Chainlink Oracles don't typically have data feeds for local blockchains like Ganache. For this reason, we opt to fork the Ethereum mainnet to our local Ganache instance. This allows us to have all the mainnet state, including the Chainlink Oracles, available for local development.
-
-#### 1. Install nvm (Node Version Manager)
-
-**Why nvm?**  
-nvm allows you to install, manage, and work with multiple versions of Node.js.
-
-**Instructions**:
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
-Then, reopen your terminal or run:
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-```
-
-#### 2. Install Ganache
-
-**Why Ganache?**  
-Ganache is a personal Ethereum blockchain which you can use to run tests, execute commands, and inspect state while controlling how the chain operates.
-
-**Instructions**:
-```bash
-npm install -g ganache-cli
-```
-
-#### 3. Setting up Infura
-
-**Why Infura?**  
-Infura provides a remote Ethereum node infrastructure, allowing you to run your application without requiring you to set up your own Ethereum node.
-
-**Instructions to create an Infura account**:
-1. Visit [Infura](https://infura.io/) and sign up for a new account.
-2. Once logged in, click on "Create New Project".
-3. Name your project and you'll be provided with an endpoint URL for the Ethereum mainnet.
-
-**How to copy the Infura URL**:
-- After creating a project, under the "Keys" section, you will see your `PROJECT ID`. The mainnet URL will look like this: `https://mainnet.infura.io/v3/YOUR_PROJECT_ID`.
-
-#### 4. Run Ganache with Infura
-
-**Instructions**:
-```bash
-ganache-cli --fork=<INFURA_URL>
-```
-Replace `<INFURA_URL>` with your Infura endpoint.
-
-This will start a local Ethereum blockchain instance which is a fork of the current mainnet state. It allows you to interact with it as if you were on the mainnet, but without any real transactions or costs.
-
-#### 5. Deploying Contracts with Remix
-
-1. Visit [Remix](https://remix.ethereum.org/).
-2. Write or import your smart contracts.
-3. In the "Deploy & Run Transactions" tab:
-   - For **Environment**, select "Custom - External Http Provider".
-   - A popup will ask for the Web3 Provider Endpoint. Enter `http://127.0.0.1:8545` and click "OK".
-   - Make sure you're connected to the right account in MetaMask (should be one of the Ganache accounts for local deployment).
-4. Deploy `playerRegistration` contract normally.
-5. Note down the deployed contract address of `playerRegistration`. This will be used as `_PLAYERREGISTRY` when deploying the `PlayerCard` contract.
-6. Deploy `PlayerCard` contract. When deploying, you'll need:
-   - `_PRICEFEED`: This would be the Chainlink Price Feed contract address on mainnet (since you're forking mainnet). For ETH/USD, you can use: `0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419`.
-   - `_PLAYERREGISTRY`: Use the address of the `playerRegistration` contract you deployed in the previous step.
-
----
-
-### Deployment Media
-
-To better understand the deployment and interaction processes, here are some visual aids:
-
-#### Deploying Smart Contracts:
-
-**Deploying PlayerRegistration Contract**
-
-![Deploying PlayerRegistration Contract](resources/images/PlayerRegistration_Deploy.png)
-
-In this screenshot, you'll see the deployment process of the `playerRegistration` contract using Remix on the Ganache fork of the mainnet.
-
-**Deploying PlayerCard Contract**
-
-![Deploying PlayerCard Contract](resources/images/PlayerCard_Deploy.png)
-
-This captures the deployment of the `playerCard` contract. Remember to specify the Chainlink Oracle Price Feed and the address of the previously deployed `playerRegistration` contract.
-
-#### Streamlit Interface Interactions
-
-**Player Registration**
-
-[Player Registration in Streamlit Video](resources/videos/Player_Registration_Streamlit.mp4)
-
-Click to view the video demonstrating the Streamlit interface for player registration. Players provide details and a selfie, which gets stored on IPFS, with the resulting hash saved on the Ethereum blockchain.
-
-**Minting Player Cards**
-
-[Mint Player Card in Streamlit Video](resources/videos/Mint_PlayerCard_Streamlit.mp4)
-
-Click to view the video showcasing the process for registered players to mint unique player cards as NFTs through this interface. The cards' attributes can dynamically update, offering a unique value proposition over traditional NFTs.
-
----
-
-## Roles and Permissions in the PlayerRegistration Contract
-
-The PlayerRegistration contract is designed with a role-based access system to ensure that specific functionalities are accessible only to authorized accounts. Here's a breakdown of the roles and their permissions:
-
-1. **Accounts with `DEFAULT_ADMIN_ROLE` or `ADMIN_ROLE`**: 
-   - Can add addresses to the waitlist using `addToWaitlist`.
-   - Can remove addresses from the waitlist using `removeFromWaitlist`.
-   - Can deregister players using `deregisterPlayer`.
-   
-2. **Accounts with `REGISTRAR_ROLE`**:
-   - Can register themselves as players using `registerPlayer`.
-   - Once they've registered themselves, they will lose the `REGISTRAR_ROLE`.
-
-3. **Accounts without any role**:
-   - Cannot add others to the waitlist.
-   - Cannot register themselves unless they have been added to the waitlist by an admin and thus given the `REGISTRAR_ROLE`.
-
-In practical terms, when using the Streamlit app:
-
-- If the selected account has the `ADMIN_ROLE`, you should provide functionalities to add/remove addresses from the waitlist and deregister players.
+1. **Install nvm (Node Version Manager)**
   
-- If the selected account has the `REGISTRAR_ROLE` (i.e., is on the waitlist), you should provide the functionality to register themselves.
+   nvm lets you manage multiple Node.js versions.
 
-- If the selected account doesn't have any role, it shouldn't have any special functionality beyond viewing data.
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+   ```
+
+2. **Install Ganache**
+
+   Ganache provides a personal Ethereum blockchain for local testing.
+
+   ```bash
+   npm install -g ganache-cli
+   ```
+
+3. **Setting up Infura**
+
+   Infura offers a remote Ethereum node infrastructure.
+
+   - Visit [Infura](https://infura.io/) and create a new account.
+   - Create a new project to get your endpoint URL.
+
+4. **Run Ganache with Infura**
+
+   ```bash
+   ganache-cli --fork=<INFURA_URL>
+   ```
+
+5. **Deploy Contracts with Remix**
+
+   Use [Remix](https://remix.ethereum.org/) to deploy your smart contracts. 
+
+---
+
+## Media Illustrations
+
+This section provides visual aids to understand deployment and user interactions:
+
+- [Deploying PlayerRegistration Contract](resources/images/PlayerRegistration_Deploy.png)
+- [Deploying PlayerCard Contract](resources/images/PlayerCard_Deploy.png)
+- [Player Registration in Streamlit Video](resources/videos/Player_Registration_Streamlit.mp4)
+- [Mint Player Card in Streamlit Video](resources/videos/Mint_PlayerCard_Streamlit.mp4)
+
+---
+
+## Roles and Permissions
+
+Details on roles and permissions in the `PlayerRegistration` contract.
+
+- **DEFAULT_ADMIN_ROLE or ADMIN_ROLE**:
+  - Add or remove addresses from the waitlist.
+  - Deregister players.
+
+- **REGISTRAR_ROLE**:
+  - Register themselves as players.
+  - Lose the `REGISTRAR_ROLE` after registration.
+
+- **No Role**:
+  - View data without special functionality.
 
 ---
 
 ## Configuration File Explanation (`SAMPLE.env`)
 
-For the `hodler-fantasy-dapp` backend service (`app.py`) to function correctly, you'll need to provide specific environment variables. These are stored in a `.env` file, but for clarity and sample purposes, we've provided a `SAMPLE.env`. Below is an explanation of each variable:
+This section explains the environment variables needed for the backend service.
 
-#### 1. `PINATA_API_KEY`:
-**Description**:  
-Your API key for the Pinata service. 
+1. **PINATA_API_KEY**: Your Pinata service API key.
+2. **PINATA_SECRET_API_KEY**: The secret key for the above API key.
+3. **WEB3_PROVIDER_URI**: URI of your Ethereum node provider.
+4. **PLAYER_REGISTRATION_CONTRACT_ADDRESS**: Ethereum address of the deployed `playerRegistration.sol` contract.
+5. **PLAYER_CARD_CONTRACT_ADDRESS**: Ethereum address of the deployed `playerCard.sol` contract.
 
-**Why?**:  
-Pinata is a service that allows you to easily store data on the IPFS (InterPlanetary File System). We use it to store off-chain data, like player's personal details and selfies.
+---
 
-**How to get one?**:  
-- Visit [Pinata](https://pinata.cloud/).
-- Sign up or log in.
-- Navigate to the "API Key" section and generate a new key.
+## Setup AWS Services (API Gateway and S3)
 
-#### 2. `PINATA_SECRET_API_KEY`:
-**Description**:  
-The secret API key corresponding to the `PINATA_API_KEY` you generated.
+### Setting up S3 Bucket:
 
-**Why?**:  
-For added security, Pinata requires both an API key and a secret key for authentication.
+1. **Login to AWS**:
+   - Navigate to the AWS Management Console.
+   - Open the Amazon S3 console at [Amazon S3](https://console.aws.amazon.com/s3/).
 
-#### 3. `WEB3_PROVIDER_URI`:
-**Description**:  
-The URI of your Ethereum node provider.
+2. **Create Bucket**:
+   - Click `Create Bucket`.
+   - Enter a unique DNS-compliant name for your new bucket.
+   - Choose the region where you want the bucket to reside and click `Next`.
+   - Keep the default settings and click `Next`.
+   - Set your desired permissions and click `Next`.
+   - Review your settings and click `Create Bucket`.
 
-**Why?**:  
-To interact with the Ethereum blockchain, the backend service needs to connect to an Ethereum node. This URI points to that node.
+3. **Upload the JSON**:
+   - Navigate to your newly created bucket.
+   - Click `Upload`.
+   - Drag and drop or choose your `hodlerfc.json` file and click `Upload`.
 
-**How to get one?**:  
-- If you're using Infura, it will be your Infura endpoint (similar to the one you used to fork the mainnet with Ganache).
-- If you have a local Ethereum node, it could be something like `http://127.0.0.1:8545`.
+### Setting up API Gateway:
 
-#### 4. `PLAYER_REGISTRATION_CONTRACT_ADDRESS`:
-**Description**:  
-The Ethereum address where the `playerRegistration.sol` contract is deployed.
+1. **Open API Gateway**:
+   - Navigate to the AWS Management Console.
+   - Open the API Gateway console at [API Gateway](https://console.aws.amazon.com/apigateway/).
 
-**Why?**:  
-To interact with the contract, the backend service needs to know its address.
+2. **Create API**:
+   - Click `Create API`.
+   - Choose `REST API` and click `Build`.
+   - Choose `New API` and provide a name and description. Click `Create API`.
 
-**How to get one?**:  
-- Once you deploy the `playerRegistration` contract, the address will be displayed in your Ethereum wallet or on Remix.
+3. **Configure Lambda Trigger**:
+   - In the left navigation pane, click `Resources`.
+   - Click `Create Resource` and provide a name and path.
+   - Once the resource is created, click `Create Method` and choose `GET`.
+   - In the setup pane, choose `Lambda Function` as the integration type.
+   - Select the region where your Lambda function (`lambda.py`) resides and type the name of your Lambda function.
+   - Click `Save`.
 
-#### 5. `PLAYER_CARD_CONTRACT_ADDRESS`:
-**Description**:  
-The Ethereum address where the `playerCard.sol` contract is deployed.
-
-**Why?**:  
-Similar to the `playerRegistration` contract, the backend needs this address to interact with the `playerCard` contract.
-
-**How to get one?**:  
-- After deploying the `PlayerCard` contract, the address will be displayed in your Ethereum wallet or on Remix.
+4. **Deploy API**:
+   - In the Actions dropdown, click `Deploy API`.
+   - Choose a deployment stage and click `Deploy`.
+   - Note down the `Invoke URL` provided. This will be your API endpoint.
