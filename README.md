@@ -5,13 +5,31 @@ A decentralized fantasy soccer platform powered by Ethereum and IPFS. Users can 
 ## Table of Contents
 
 1. [Project Description](#project-description)
-2. [Application Flow](#application-flow)
-3. [Roles and Permissions in the PlayerRegistration Contract](#roles-and-permissions-in-the-playerregistration-contract)
-4. [Media Illustrations](#media-illustrations)
+2. [Technologies and Tools Used](#technologies-and-tools-used)
+3. [Application Flow](#application-flow)
+4. [Roles and Permissions in the PlayerRegistration Contract](#roles-and-permissions-in-the-playerregistration-contract)
+5. [Media Illustrations](#media-illustrations)
 
 ## Project Description
 
 The `hodler-fantasy-dapp` offers a blend of fantasy soccer and blockchain technology. Users own, trade, and compete using tokenized player cards. These cards are not static; their value and attributes (like fantasy points) can change based on real-world events, thanks to integration with Chainlink oracles.
+
+## Technologies and Tools Used
+
+- **Blockchain**:
+  - **Solidity**: The smart contracts for the platform are written in Solidity.
+  - **Ethereum**: The decentralized platform where the smart contracts are deployed.
+  - **Chainlink**: Used as an oracle to fetch external data into the smart contracts.
+  - **IPFS**: Utilized for decentralized storage of player data.
+
+- **Backend & Data Handling**:
+  - **Python**: Powers the backend of the platform.
+  - **Streamlit**: Offers a UI for user interactions.
+  - **Jupyter Notebook**: Used for development and data analysis.
+
+- **Cloud & External Services**:
+  - **AWS**: Provides cloud services, including S3 for storage and API Gateway for data access.
+  - **Infura**: Offers Ethereum node infrastructure.
 
 ## Application Flow
 
