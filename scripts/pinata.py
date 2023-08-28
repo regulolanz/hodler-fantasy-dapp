@@ -76,10 +76,10 @@ def pin_json_to_ipfs(data):
 # ========= Fetch Data from IPFS via Pinata ========
 def fetch_from_ipfs(ipfs_hash):
     """
-    Fetches data from IPFS using Pinata's Cloud API.
+    Fetches data from IPFS using ipfs.io gateway.
     """
     try:
-        response = requests.get(f"https://api.pinata.cloud/gateway/v0/ipfs/{ipfs_hash}", headers=json_headers)
+        response = requests.get(f"https://ipfs.io/ipfs/{ipfs_hash}")
         response.raise_for_status()  # Raise an error for bad responses
         return response.json()
     except requests.RequestException as err:

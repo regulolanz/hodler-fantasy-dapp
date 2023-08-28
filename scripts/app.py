@@ -18,6 +18,7 @@ w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 MINTING_FEE_IN_USD = 50
 position_options = ["GOA", "DEF", "MID", "STK"]
 league_options = ["UPSL_Division_1", "USSL_Elite", "PFL_Division_1"]
+season_options = ["2023_Spring", "2023_Fall"]
 team_options = ["Hodler Miami FC"]
 
 # ===================== Contract Initialization =====================
@@ -44,6 +45,8 @@ def load_contracts():
     return player_registration_contract, player_card_contract
 
 player_registration_contract, player_card_contract = load_contracts()
+
+ADMIN_ROLE = player_card_contract.functions.ADMIN_ROLE().call()
 
 # ===================== Player Registration =====================
 def register_player():
@@ -94,10 +97,10 @@ def register_player():
 def mint_player_card():
     st.markdown("## Mint a Player Card")
     
-    team = st.selectbox("Select player's team", options=team_options)
-    position = st.selectbox("Select player's position", options=position_options)
-    league = st.selectbox("Select league", options=league_options)
-    season = st.selectbox("Select season", options=season_options)
+    team = st.selectbox("Select player's team", options=team_options, key="mint_team")
+    position = st.selectbox("Select player's position", options=position_options, key="mint_position")
+    league = st.selectbox("Select league", options=league_options, key="mint_league")
+    season = st.selectbox("Select season", options=season_options, key="mint_season")
     profile_picture = st.text_input("Profile picture URL or IPFS hash")
     fantasy_points = 0  # Initial value, user can't modify
 
@@ -120,18 +123,26 @@ card_id_to_player_name = {}
 
 # ===================== Fetch Player Data for All Cards =====================
 def fetch_player_data_for_all_cards():
-    # Fetch all card IDs (assuming you have a function in the contract to do this or you keep track in the app)
+    # Fetch all card IDs
     all_card_ids = player_card_contract.functions.getAllCardIds().call()
 
-    # Mapping to store card ID to player name
-    card_id_to_player_name = {}
+    # Mapping to store card ID to player details
+    card_id_to_player_details = {}
 
     for card_id in all_card_ids:
-        ipfs_hash = player_card_contract.functions.getIPFSHashForCard(card_id).call()
-        player_data = fetch_from_ipfs(ipfs_hash)  # This is a hypothetical function to fetch data from IPFS
-        card_id_to_player_name[card_id] = player_data["name"]  # Assuming the name is stored with the key "name" in IPFS
+        player_address = player_card_contract.functions.cards(card_id).call()[0]
+        ipfs_hash = player_registration_contract.functions.playerInfos(player_address).call()[1]
+        player_data = fetch_from_ipfs(ipfs_hash)
+        
+        # Store the required details in the mapping
+        card_id_to_player_details[card_id] = {
+            "name": player_data["name"],
+            "lastName": player_data["lastName"],
+            "dob": player_data["dob"],
+            "nationality": player_data["nationality"]
+        }
 
-    return card_id_to_player_name
+    return card_id_to_player_details
 
 # ===================== Fantasy Points Update =====================
 def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
@@ -194,23 +205,56 @@ def display_all_players():
     for player_address in w3.eth.accounts:
         if player_registration_contract.functions.isPlayerRegistered(player_address).call():
             player_info = player_registration_contract.functions.playerInfos(player_address).call()
-            st.write(f"Player Number: {player_info['playerNumber']} - Address: {player_address}")
+            player_data_hash = player_info[1]  # Assuming ipfsHash is the second item in the struct
+            player_data = fetch_from_ipfs(player_data_hash)
+            
+            st.write(f"Player Number: {player_info[0]}")  # Assuming playerNumber is the first item in the struct
+            st.write(f"Player Name: {player_data['name']} {player_data['lastName']}")
+            st.write(f"DOB: {player_data['dob']}")
+            st.write(f"Nationality: {player_data['nationality']}")
+            st.write("----")
+
+# ===================== Display All Minted Cards =====================
+def display_all_cards():
+    st.markdown("## List of All Minted Player Cards")
+    all_card_ids = player_card_contract.functions.getAllCardIds().call()
+
+    for card_id in all_card_ids:
+        card_data = player_card_contract.functions.cards(card_id).call()
+        player_address = card_data[0]  # Assuming the playerAddress is the first item in the struct
+        player_info_hash = player_registration_contract.functions.playerInfos(player_address).call()[1]  # ipfsHash is the second item
+        player_info = fetch_from_ipfs(player_info_hash)
+        
+        st.write(f"Card ID: {card_id}")
+        st.write(f"Player Name: {player_info['name']} {player_info['lastName']}")
+        st.write(f"Team: {card_data[1]}")  # Assuming team is the second item in the Card struct
+        st.write(f"Position: {card_data[2]}")  # and so on for the other attributes...
+        st.write(f"Fantasy Points: {card_data[6]}")  # Assuming fantasyPoints is the seventh item in the Card struct
+        st.write("----")
 
 # ===================== Main Streamlit App =====================
 st.title("Fantasy Soccer Player Registration")
-address = st.selectbox("Select Account", options=w3.eth.accounts)
+
+# Sidebar
+st.sidebar.header("Account")
+address = st.sidebar.selectbox("Select Account", options=w3.eth.accounts)
 
 is_registered = player_registration_contract.functions.isPlayerRegistered(address).call()
 REGISTRAR_ROLE = player_registration_contract.functions.REGISTRAR_ROLE().call()
-is_waitlisted = player_registration_contract.functions.playerInfos(address).call()[2]
+is_waitlisted = player_registration_contract.functions.playerInfos(address).call()[3]
+
+# Check if the connected address has the ADMIN_ROLE in the player_card_contract
+if player_card_contract.functions.hasRole(ADMIN_ROLE, address).call():
+    update_fantasy_points()
 
 if is_registered:
     mint_player_card()
 elif is_waitlisted:
     register_player()
-    st.success(f"Your player number is: {player_registration_contract.functions.playerInfos(address).call()['playerNumber']}")
+    st.success(f"Your player number is: {player_registration_contract.functions.playerInfos(address).call()[0]}")
 
 display_all_players()
-    
+display_all_cards() 
+
 # Update the mapping when the app starts
-card_id_to_player_name = fetch_player_data_for_all_cards()
+card_id_to_player_details = fetch_player_data_for_all_cards()
