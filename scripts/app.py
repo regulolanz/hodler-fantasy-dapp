@@ -184,10 +184,10 @@ def update_fantasy_points():
         }
         
         # Define the API Gateway URL
-        api_gateway_url = "https://mdaq0itlok.execute-api.us-east-2.amazonaws.com/prod/chainlink"
+        api_gateway_url = os.getenv("API_GATEWAY_URL")
         
         # Send an HTTP GET request to the API Gateway
-        api_response = requests.get(api_gateway_url, json=data)
+        api_response = requests.get(api_gateway_url, params=data)
     
         if api_response.status_code == 200:
             response_data = api_response.json()
@@ -197,7 +197,7 @@ def update_fantasy_points():
             else:
                 st.error(f"Error fetching data for {player_name}")
         else:
-            st.error(f"API error: {api_response.text}")
+            st.error(f"API error (Status {api_response.status_code}): {api_response.text}")
 
 # ===================== Display All Registered Players =====================
 def display_all_players():
