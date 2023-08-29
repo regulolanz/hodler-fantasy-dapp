@@ -1,1960 +1,1076 @@
 {
-    "Julio Villamar": {
-        "Fantasy Points": 17,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 21,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 75,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Christian Lugo": {
-        "Fantasy Points": 12,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 5,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 15,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Stephen Fonseca": {
-        "Fantasy Points": 18,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 3,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 75,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Lucas Eceizabarrena": {
-        "Fantasy Points": 6,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 14,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 25,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Alexis Perez": {
-        "Fantasy Points": 11,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 8,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 60,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 3,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jesus Garmendia": {
-        "Fantasy Points": 11,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 20,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 10,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Diego Lombardi": {
-        "Fantasy Points": 6,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 16,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 25,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Alberto Gomez": {
-        "Fantasy Points": 8,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 19,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 60,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "David Name": {
-        "Fantasy Points": 13,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 10,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 60,
-        "Goal": 0.0,
-        "Goal Assist": 2.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 3,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jhosmilt Valera": {
-        "Fantasy Points": 6,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 22,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 15,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Roger Teran": {
-        "Fantasy Points": 12,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 15,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 20,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Juani Ayerra": {
-        "Fantasy Points": 6,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 18,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 15,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Tarek Jiha": {
-        "Fantasy Points": 7,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 14,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 15,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jorge Abuin": {
-        "Fantasy Points": 7,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "GK",
-        "Result": "Lost",
-        "Jersey": 1,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Roberto Gamero": {
-        "Fantasy Points": 14,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 15,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 20,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Ivan Newman": {
-        "Fantasy Points": 12,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 6,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 1.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Eduardo Aguerrevere": {
-        "Fantasy Points": 16,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 7,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 1.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jose Regardiz": {
-        "Fantasy Points": 9,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 11,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 1.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Abdilsalem El Chaer": {
-        "Fantasy Points": 13,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 16,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Camilo Olaya": {
-        "Fantasy Points": 12,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 25,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Urbano Sanchez": {
-        "Fantasy Points": 18,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 2,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Rafael Quero": {
-        "Fantasy Points": 16,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 3,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Carlos Lopez": {
-        "Fantasy Points": 13,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 14,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 25,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Juan Oliveros": {
-        "Fantasy Points": 6,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 16,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Marcos Castillo": {
-        "Fantasy Points": 15,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 10,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 75,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Nicolas Guevara": {
-        "Fantasy Points": 9,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 9,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 40,
-        "Goal": 1.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Darwin Rodriguez": {
-        "Fantasy Points": 16,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 8,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Bochi Hoyos": {
-        "Fantasy Points": 7,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 22,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 30,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Marco Parra": {
-        "Fantasy Points": 14,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 6,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 70,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jesus Boscan": {
-        "Fantasy Points": 14,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 14,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Angelo Zegarra": {
-        "Fantasy Points": 8,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "GK",
-        "Result": "Lost",
-        "Jersey": 1,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 75,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Mateo Bravo": {
-        "Fantasy Points": 18,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 4,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Carlos Lezama": {
-        "Fantasy Points": 11,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 2,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 20,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Nicolas Zamora": {
-        "Fantasy Points": 12,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 5,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Juan Alvarenga": {
-        "Fantasy Points": 8,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 9,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 75,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Eduardo Mora": {
-        "Fantasy Points": 14,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 2,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 70,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 4,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 1.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Randy Mota": {
-        "Fantasy Points": 7,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 6,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 1.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Santiago Fayeh": {
-        "Fantasy Points": 7,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "GK",
-        "Result": "Win",
-        "Jersey": 12,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Edgar Perez": {
-        "Fantasy Points": 9,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "GK",
-        "Result": "Draw",
-        "Jersey": 12,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Hernan Tonini": {
-        "Fantasy Points": 14,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 3,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 25,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Andres Cabrera": {
-        "Fantasy Points": 13,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 3,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Andres Ibarra": {
-        "Fantasy Points": 19,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 4,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 1.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Juan Chiquito": {
-        "Fantasy Points": 14,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 5,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Daniel Daza": {
-        "Fantasy Points": 13,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 6,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Yanko Vagovits": {
-        "Fantasy Points": 17,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 11,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 1.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jhansel Abreu": {
-        "Fantasy Points": 13,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 10,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Armando Uban": {
-        "Fantasy Points": 17,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 10,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Ayax Armas": {
-        "Fantasy Points": 9,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 6,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Silvio Lupo": {
-        "Fantasy Points": 9,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "GK",
-        "Result": "Draw",
-        "Jersey": 1,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 1.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Luis Morillo": {
-        "Fantasy Points": 15,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 14,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Manuel Goncalvez": {
-        "Fantasy Points": 13,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 5,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 17,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Lawrence Lonsdale": {
-        "Fantasy Points": 14,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 16,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jesus Orozco": {
-        "Fantasy Points": 9,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Draw",
-        "Jersey": 32,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 75,
-        "Goal": 0.0,
-        "Goal Assist": 1.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Gabriel Guevara": {
-        "Fantasy Points": 14,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 20,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 15,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Alejandro Garcia": {
-        "Fantasy Points": 15,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 2,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Anndre Clemente": {
-        "Fantasy Points": 12,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 19,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Cristian Leal": {
-        "Fantasy Points": 15,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 8,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Juan Arango": {
-        "Fantasy Points": 17,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 18,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 90,
-        "Goal": 1.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Ricardo Pacheco": {
-        "Fantasy Points": 8,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 17,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Juan Bermudez": {
-        "Fantasy Points": 7,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Draw",
-        "Jersey": 9,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 2,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Carlo Ciarcia": {
-        "Fantasy Points": 19,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 3,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 80,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Leonard Flores": {
-        "Fantasy Points": 14,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 4,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Luis Ortega": {
-        "Fantasy Points": 14,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 6,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Luis Brito": {
-        "Fantasy Points": 7,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 20,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 30,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Hernan Caraballo": {
-        "Fantasy Points": 12,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 11,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Yorvic Manuel": {
-        "Fantasy Points": 6,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 23,
-        "Hodler Mark Points": 2,
-        "Minutes Played": 25,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Tomas Bravo": {
-        "Fantasy Points": 14,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 3,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 3,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Santiago Gil": {
-        "Fantasy Points": 16,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 2,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Gleider Caro": {
-        "Fantasy Points": 11,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 15,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 40,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Layneker Zafra": {
-        "Fantasy Points": 19,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 8,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Heatklif Castillo": {
-        "Fantasy Points": 8,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 11,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 68,
-        "Goal": 0.0,
-        "Goal Assist": 1.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 5,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Raul Mendieta": {
-        "Fantasy Points": 7,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 15,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 20,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Robert Nava": {
-        "Fantasy Points": 13,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 24,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Sergio Medina": {
-        "Fantasy Points": 7,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 11,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 1.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Anthony Ore": {
-        "Fantasy Points": 13,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Win",
-        "Jersey": 16,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 15,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Gianpiero Berardinelli": {
-        "Fantasy Points": 7,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Lost",
-        "Jersey": 19,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 22,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Yahia Aly": {
-        "Fantasy Points": 9,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "GK",
-        "Result": "Lost",
-        "Jersey": 1,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Brandon Castillo": {
-        "Fantasy Points": 7,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 20,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 30,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Gabriel Carrizales": {
-        "Fantasy Points": 12,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Draw",
-        "Jersey": 20,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Ruslan Mustafeav": {
-        "Fantasy Points": 9,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "GK",
-        "Result": "Win",
-        "Jersey": 1,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Daniel Ponte": {
-        "Fantasy Points": 15,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 3,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Juan Fuenmayor": {
-        "Fantasy Points": 19,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 13,
-        "Hodler Mark Points": 5,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 1.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Jose Paredes": {
-        "Fantasy Points": 13,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 15,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 45,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 1,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Fabrizio Encinas": {
-        "Fantasy Points": 13,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Draw",
-        "Jersey": 6,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 30,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Regulo Lanz": {
-        "Fantasy Points": 15,
-        "League": "PFL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "DEF",
-        "Result": "Lost",
-        "Jersey": 24,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 90,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 2,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Santiago Chavarro": {
-        "Fantasy Points": 12,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Win",
-        "Jersey": 8,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 30,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 2.0,
-        "Red Card": 1.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Alejandro Bernal": {
-        "Fantasy Points": 11,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 6,
-        "Hodler Mark Points": 3,
-        "Minutes Played": 60,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 4,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Lobo Guerra": {
-        "Fantasy Points": 14,
-        "League": "USSL_Elite",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "MID",
-        "Result": "Lost",
-        "Jersey": 8,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 71,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 5,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    },
-    "Rafael Bruzual": {
-        "Fantasy Points": 8,
-        "League": "UPSL_Division_1",
-        "Season": "2023_Spring",
-        "Team": "Hodler Miami FC",
-        "Position": "FWD",
-        "Result": "Win",
-        "Jersey": 17,
-        "Hodler Mark Points": 4,
-        "Minutes Played": 20,
-        "Goal": 0.0,
-        "Goal Assist": 0.0,
-        "Yellow Card": 0.0,
-        "Red Card": 0.0,
-        "Goal Against": 0,
-        "Penalties Won": 0.0,
-        "Penalties Converted": 0.0,
-        "Penalties Committed": 0.0,
-        "Penalties Saved": 0.0,
-        "Penalties Missed": 0.0,
-        "Free-kick Converted": 0.0
-    }
+    "Abdilsalem El Chaer": [
+        {
+            "Fantasy Points": 22,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 68,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Alberto Gomez": [
+        {
+            "Fantasy Points": 64,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 59,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Alejandro Bernal": [
+        {
+            "Fantasy Points": 11,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Alejandro Garcia": [
+        {
+            "Fantasy Points": 189,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 16,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Alexis Perez": [
+        {
+            "Fantasy Points": 106,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Andres Cabrera": [
+        {
+            "Fantasy Points": 54,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Andres Ibarra": [
+        {
+            "Fantasy Points": 190,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Angelo Zegarra": [
+        {
+            "Fantasy Points": 44,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        },
+        {
+            "Fantasy Points": 16,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        },
+        {
+            "Fantasy Points": 10,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        }
+    ],
+    "Anndre Clemente": [
+        {
+            "Fantasy Points": 92,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Anthony Ore": [
+        {
+            "Fantasy Points": 13,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Armando Uban": [
+        {
+            "Fantasy Points": 76,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 30,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Ayax Armas": [
+        {
+            "Fantasy Points": 83,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Bochi Hoyos": [
+        {
+            "Fantasy Points": 7,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Brandon Castillo": [
+        {
+            "Fantasy Points": 72,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Camilo Olaya": [
+        {
+            "Fantasy Points": 12,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Carlo Ciarcia": [
+        {
+            "Fantasy Points": 34,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Carlos Lezama": [
+        {
+            "Fantasy Points": 66,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Carlos Lopez": [
+        {
+            "Fantasy Points": 16,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 46,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Christian Lugo": [
+        {
+            "Fantasy Points": 24,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Cristian Leal": [
+        {
+            "Fantasy Points": 27,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 140,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Daniel Daza": [
+        {
+            "Fantasy Points": 39,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Daniel Ponte": [
+        {
+            "Fantasy Points": 48,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Darwin Rodriguez": [
+        {
+            "Fantasy Points": 59,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 44,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 147,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "David Name": [
+        {
+            "Fantasy Points": 123,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Diego Lombardi": [
+        {
+            "Fantasy Points": 13,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Edgar Perez": [
+        {
+            "Fantasy Points": 19,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        },
+        {
+            "Fantasy Points": 10,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        }
+    ],
+    "Eduardo Aguerrevere": [
+        {
+            "Fantasy Points": 173,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Eduardo Mora": [
+        {
+            "Fantasy Points": 27,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Fabrizio Encinas": [
+        {
+            "Fantasy Points": 76,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Gabriel Carrizales": [
+        {
+            "Fantasy Points": 59,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Gabriel Guevara": [
+        {
+            "Fantasy Points": 56,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 11,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Gianpiero Berardinelli": [
+        {
+            "Fantasy Points": 7,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 36,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Gleider Caro": [
+        {
+            "Fantasy Points": 22,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Heatklif Castillo": [
+        {
+            "Fantasy Points": 10,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 27,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Hernan Caraballo": [
+        {
+            "Fantasy Points": 107,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Hernan Tonini": [
+        {
+            "Fantasy Points": 96,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Ivan Newman": [
+        {
+            "Fantasy Points": 36,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 12,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Jesus Boscan": [
+        {
+            "Fantasy Points": 38,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Jesus Garmendia": [
+        {
+            "Fantasy Points": 21,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Jesus Orozco": [
+        {
+            "Fantasy Points": 24,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 28,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Jhansel Abreu": [
+        {
+            "Fantasy Points": 11,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 161,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Jhosmilt Valera": [
+        {
+            "Fantasy Points": 73,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 7,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Jorge Abuin": [
+        {
+            "Fantasy Points": 15,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        }
+    ],
+    "Jose Paredes": [
+        {
+            "Fantasy Points": 26,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Jose Regardiz": [
+        {
+            "Fantasy Points": 115,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Juan Alvarenga": [
+        {
+            "Fantasy Points": 53,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 28,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Juan Arango": [
+        {
+            "Fantasy Points": 131,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 78,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Juan Bermudez": [
+        {
+            "Fantasy Points": 8,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 50,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Juan Chiquito": [
+        {
+            "Fantasy Points": 77,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Juan Fuenmayor": [
+        {
+            "Fantasy Points": 19,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Juan Oliveros": [
+        {
+            "Fantasy Points": 6,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Juani Ayerra": [
+        {
+            "Fantasy Points": 23,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Julio Villamar": [
+        {
+            "Fantasy Points": 166,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 69,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Lawrence Lonsdale": [
+        {
+            "Fantasy Points": 52,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 19,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Layneker Zafra": [
+        {
+            "Fantasy Points": 57,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 33,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Leonard Flores": [
+        {
+            "Fantasy Points": 114,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Lobo Guerra": [
+        {
+            "Fantasy Points": 14,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Lucas Eceizabarrena": [
+        {
+            "Fantasy Points": 14,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Luis Brito": [
+        {
+            "Fantasy Points": 13,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Luis Morillo": [
+        {
+            "Fantasy Points": 180,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Luis Ortega": [
+        {
+            "Fantasy Points": 104,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Manuel Goncalvez": [
+        {
+            "Fantasy Points": 26,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 15,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Marco Parra": [
+        {
+            "Fantasy Points": 111,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Marcos Castillo": [
+        {
+            "Fantasy Points": 64,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 92,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Mateo Bravo": [
+        {
+            "Fantasy Points": 147,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 53,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Nicolas Guevara": [
+        {
+            "Fantasy Points": 9,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 31,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Nicolas Zamora": [
+        {
+            "Fantasy Points": 153,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Rafael Bruzual": [
+        {
+            "Fantasy Points": 8,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Rafael Quero": [
+        {
+            "Fantasy Points": 16,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 146,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Randy Mota": [
+        {
+            "Fantasy Points": 15,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 85,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 23,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Raul Mendieta": [
+        {
+            "Fantasy Points": 7,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Regulo Lanz": [
+        {
+            "Fantasy Points": 72,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Ricardo Pacheco": [
+        {
+            "Fantasy Points": 42,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        },
+        {
+            "Fantasy Points": 96,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Robert Nava": [
+        {
+            "Fantasy Points": 25,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Roberto Gamero": [
+        {
+            "Fantasy Points": 39,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 42,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Roger Teran": [
+        {
+            "Fantasy Points": 47,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Ruslan Mustafeav": [
+        {
+            "Fantasy Points": 61,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        },
+        {
+            "Fantasy Points": 7,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        }
+    ],
+    "Santiago Chavarro": [
+        {
+            "Fantasy Points": 12,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 24,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Santiago Fayeh": [
+        {
+            "Fantasy Points": 7,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        }
+    ],
+    "Santiago Gil": [
+        {
+            "Fantasy Points": 132,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Sergio Medina": [
+        {
+            "Fantasy Points": 17,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Silvio Lupo": [
+        {
+            "Fantasy Points": 34,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        },
+        {
+            "Fantasy Points": 52,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        }
+    ],
+    "Stephen Fonseca": [
+        {
+            "Fantasy Points": 146,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Tarek Jiha": [
+        {
+            "Fantasy Points": 56,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ],
+    "Tomas Bravo": [
+        {
+            "Fantasy Points": 25,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        },
+        {
+            "Fantasy Points": 27,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Urbano Sanchez": [
+        {
+            "Fantasy Points": 114,
+            "League": "PFL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        },
+        {
+            "Fantasy Points": 116,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "DEF"
+        }
+    ],
+    "Yahia Aly": [
+        {
+            "Fantasy Points": 68,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        },
+        {
+            "Fantasy Points": 18,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "GK"
+        }
+    ],
+    "Yanko Vagovits": [
+        {
+            "Fantasy Points": 127,
+            "League": "UPSL_Division_1",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "MID"
+        }
+    ],
+    "Yorvic Manuel": [
+        {
+            "Fantasy Points": 6,
+            "League": "USSL_Elite",
+            "Season": "2023_Spring",
+            "Team": "Hodler Miami FC",
+            "Position": "FWD"
+        }
+    ]
 }
