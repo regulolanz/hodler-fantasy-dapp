@@ -46,9 +46,10 @@ The `hodler-fantasy-dapp` offers a blend of fantasy soccer and blockchain techno
    - Fantasy points are initialized to zero during minting and can be updated later based on player performance.
 
 3. **Updating Fantasy Points**: 
-   - After every game, an external system updates the fantasy points of the players based on their performance.
+  - After every game, an external system updates the fantasy points of the players based on their performance.
    - This data is then stored in an S3 bucket in a JSON format.
-   - Through the Streamlit interface, the admin can trigger a Chainlink oracle to fetch the updated fantasy points for players from the S3 bucket and update the respective player cards on the Ethereum blockchain.
+   - Through the Streamlit interface, the admin can query this data directly from the S3 bucket via an AWS API Gateway endpoint.
+   - The retrieved fantasy points are then updated on the Ethereum blockchain for the respective player cards.
 
 ## Media Illustrations
 
@@ -89,3 +90,4 @@ Note: Detailed configurations and environment settings have been intentionally l
 ## Feedback
 
 We value your feedback! If you have suggestions or find any issues, please report them. While we might not respond to each feedback entry, be assured that we regularly review the inputs and work on improving the platform.
+
