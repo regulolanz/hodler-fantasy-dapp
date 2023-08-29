@@ -51,6 +51,8 @@ The `hodler-fantasy-dapp` offers a blend of fantasy soccer and blockchain techno
    - Through the Streamlit interface, the admin can query this data directly from the S3 bucket via an AWS API Gateway endpoint.
    - The retrieved fantasy points are then updated on the Ethereum blockchain for the respective player cards.
 
+![Application Flow Diagram](resources/images/ApplicationFlow.png)
+
 ## Media Illustrations
 
 This section provides visual aids to understand deployment and user interactions:
