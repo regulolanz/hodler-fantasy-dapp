@@ -59,6 +59,7 @@ This section provides visual aids to understand deployment and user interactions
 - [Player Registration in Streamlit Video](resources/videos/Player_Registration_Streamlit.mp4)
 - [Mint Player Card in Streamlit Video](resources/videos/Mint_PlayerCard_Streamlit.mp4)
 - [Updating Fantasy Points in Streamlit Video](resources/videos/Update_Fantasy_Points.mp4)
+- [Screenshot of Updated Fantasy Points](resources/images/FantasyPoints_Updated.png)
 
 ## Roles and Permissions
 
