@@ -58,6 +58,7 @@ This section provides visual aids to understand deployment and user interactions
 - [Deploying PlayerCard Contract](resources/images/PlayerCard_Deploy.png)
 - [Player Registration in Streamlit Video](resources/videos/Player_Registration_Streamlit.mp4)
 - [Mint Player Card in Streamlit Video](resources/videos/Mint_PlayerCard_Streamlit.mp4)
+- [Updating Fantasy Points in Streamlit Video](resources/videos/Update_Fantasy_Points.mp4)
 
 ## Roles and Permissions
 
