@@ -1,4 +1,4 @@
-# hodler-fantasy-dapp
+## hodler-fantasy-dapp
 
 A decentralized fantasy soccer platform powered by Ethereum and IPFS. Users can build dynamic teams using tokenized players, represented as Dynamic NFTs. These Dynamic NFTs, in the form of player cards, can have their fantasy points updated post each game, mirroring the real-world performance of the players.
 
@@ -9,6 +9,8 @@ A decentralized fantasy soccer platform powered by Ethereum and IPFS. Users can 
 3. [Application Flow](#application-flow)
 4. [Roles and Permissions in the PlayerRegistration Contract](#roles-and-permissions-in-the-playerregistration-contract)
 5. [Media Illustrations](#media-illustrations)
+6. [Quick Start & Configuration](#quick-start-and-configuration)
+7. [Feedback](#feedback)
 
 ## Project Description
 
@@ -71,3 +73,17 @@ Details on roles and permissions in the `PlayerRegistration` contract.
 
 - **No Role**:
   - View data without special functionality.
+
+## Quick Start & Configuration
+
+- **Prerequisites**: Basic knowledge of blockchain, Ethereum, and Python. Ensure that you have necessary tools like `Node.js`, `Python`, etc.
+- **Setup**:
+  1. Clone the repository.
+  2. Install the necessary dependencies.
+  3. Configure settings in the `.env` file and `.streamlit` folder as per your needs.
+
+Note: Detailed configurations and environment settings have been intentionally left out to maintain the uniqueness of the project. For specific configurations or collaborations, please reach out to the project maintainers.
+
+## Feedback
+
+We value your feedback! If you have suggestions or find any issues, please report them. While we might not respond to each feedback entry, be assured that we regularly review the inputs and work on improving the platform.
