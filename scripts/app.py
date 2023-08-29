@@ -143,18 +143,8 @@ def mint_player_card():
 
 # ===================== Fantasy Points Update =====================
 def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
-    # Display the full dictionary content
-    st.write(f"Full dictionary content: {card_id_to_player_name}")
-
-    # Display each character of the player name and its corresponding ASCII code
-    st.write("".join([f"{c}({ord(c)})" for c in player_name]))
-
-    st.write(f"Searching for: {player_name}")
-
     # Find the card IDs using the mapping
     card_ids_for_player = [key for key, value in card_id_to_player_name.items() if value == player_name]
-    
-    st.write(f"Found card IDs: {card_ids_for_player}")
     
     if not card_ids_for_player:
         st.error(f"Couldn't find any cards associated with the name {player_name}")
@@ -162,7 +152,6 @@ def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
 
     for card_id in card_ids_for_player:
         card_data = player_card_contract.functions.cards(card_id).call()
-        st.write(f"Card Data for ID {card_id}: {card_data}")
         
         if card_data[7] and card_data[3] == league and card_data[4] == season:
             try:
@@ -202,7 +191,6 @@ def update_fantasy_points():
             response_data = api_response.json()
             if player_name in response_data:
                 fantasy_points = response_data[player_name]["Fantasy Points"]
-                st.write(response_data)
                 update_fantasy_points_on_chain(player_name, league, season, fantasy_points)
             else:
                 st.error(f"Error fetching data for {player_name}")
@@ -252,6 +240,9 @@ def get_cards_for_player(player_name=None):
     return card_list
 
 def get_fantasy_points_for_card(card_entry):
+    if card_entry is None:
+        return "There is no player card for this player"
+
     card_id = int(card_entry.split(" | ")[0].split(": ")[1])
     card_data = player_card_contract.functions.cards(card_id).call()
     fantasy_points = card_data[6]
@@ -274,7 +265,10 @@ selected_card = st.selectbox("List of All Minted Player Cards for the Selected P
 
 # Display fantasy points for the selected card
 fantasy_points = get_fantasy_points_for_card(selected_card)
-st.write(f"Fantasy Points for selected card: {fantasy_points}")
+if isinstance(fantasy_points, int):
+    st.write(f"Fantasy Points for selected card: {fantasy_points}")
+else:
+    st.write(fantasy_points)
 
 is_registered = player_registration_contract.functions.isPlayerRegistered(address).call()
 REGISTRAR_ROLE = player_registration_contract.functions.REGISTRAR_ROLE().call()
