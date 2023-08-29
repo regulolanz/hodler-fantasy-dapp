@@ -5,9 +5,9 @@ s3 = boto3.client('s3')
 
 # ===================== Utility Functions =====================
 
-def is_matching_player(player_json, team, league, season):
+def is_matching_player(player_json_entry, team, league, season):
     """Check if the player matches the specified criteria."""
-    return player_json['League'] == league and player_json['Season'] == season and player_json['Team'] == team
+    return player_json_entry['League'] == league and player_json_entry['Season'] == season and player_json_entry['Team'] == team
 
 def fetch_player_data_from_s3(bucket_name, file_key):
     """Retrieve player data from the S3 bucket."""
@@ -33,10 +33,15 @@ def lambda_handler(event, context):
         season = query_parameters.get("season", "")
 
         response_data = {}
-        if player_name in player_data and is_matching_player(player_data[player_name], team, league, season):
-            response_data[player_name] = {
-                "Fantasy Points": player_data[player_name].get("Fantasy Points", "")
-            }
+        if player_name in player_data:
+            for entry in player_data[player_name]:
+                if is_matching_player(entry, team, league, season):
+                    response_data[player_name] = {
+                        "Fantasy Points": entry.get("Fantasy Points", "")
+                    }
+                    break  # Exit the loop once the matching entry is found
+            else:
+                print("Matching criteria not found for player!")
         else:
             print("Invalid Input or Player not found!")
 
