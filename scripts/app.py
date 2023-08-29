@@ -45,8 +45,31 @@ def load_contracts():
     return player_registration_contract, player_card_contract
 
 player_registration_contract, player_card_contract = load_contracts()
-
 ADMIN_ROLE = player_card_contract.functions.ADMIN_ROLE().call()
+
+# Global variable to maintain a mapping of card ID to player name
+card_id_to_player_name = {}
+
+# ===================== Fetch Player Data for All Cards =====================
+def fetch_player_data_for_all_cards():
+    global card_id_to_player_name
+    
+    # Fetch all card IDs
+    all_card_ids = player_card_contract.functions.getAllCardIds().call()
+
+    for card_id in all_card_ids:
+        player_address = player_card_contract.functions.cards(card_id).call()[0]
+        ipfs_hash = player_registration_contract.functions.playerInfos(player_address).call()[1]
+        player_data = fetch_from_ipfs(ipfs_hash)
+
+        # Store the required details in the mapping
+        full_name = player_data["name"] + " " + player_data["lastName"]
+        card_id_to_player_name[card_id] = full_name
+
+    return card_id_to_player_name
+
+# Update the mapping when the app starts
+fetch_player_data_for_all_cards()
 
 # ===================== Player Registration =====================
 def register_player():
@@ -118,36 +141,20 @@ def mint_player_card():
         except Exception as e:
             st.error(f"An unexpected error occurred: {e}")
 
-# Global variable to maintain a mapping of card ID to player name
-card_id_to_player_name = {}
-
-# ===================== Fetch Player Data for All Cards =====================
-def fetch_player_data_for_all_cards():
-    # Fetch all card IDs
-    all_card_ids = player_card_contract.functions.getAllCardIds().call()
-
-    # Mapping to store card ID to player details
-    card_id_to_player_details = {}
-
-    for card_id in all_card_ids:
-        player_address = player_card_contract.functions.cards(card_id).call()[0]
-        ipfs_hash = player_registration_contract.functions.playerInfos(player_address).call()[1]
-        player_data = fetch_from_ipfs(ipfs_hash)
-        
-        # Store the required details in the mapping
-        card_id_to_player_details[card_id] = {
-            "name": player_data["name"],
-            "lastName": player_data["lastName"],
-            "dob": player_data["dob"],
-            "nationality": player_data["nationality"]
-        }
-
-    return card_id_to_player_details
-
 # ===================== Fantasy Points Update =====================
 def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
+    # Display the full dictionary content
+    st.write(f"Full dictionary content: {card_id_to_player_name}")
+
+    # Display each character of the player name and its corresponding ASCII code
+    st.write("".join([f"{c}({ord(c)})" for c in player_name]))
+
+    st.write(f"Searching for: {player_name}")
+
     # Find the card IDs using the mapping
     card_ids_for_player = [key for key, value in card_id_to_player_name.items() if value == player_name]
+    
+    st.write(f"Found card IDs: {card_ids_for_player}")
     
     if not card_ids_for_player:
         st.error(f"Couldn't find any cards associated with the name {player_name}")
@@ -155,7 +162,9 @@ def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
 
     for card_id in card_ids_for_player:
         card_data = player_card_contract.functions.cards(card_id).call()
-        if card_data["isActive"] and card_data["league"] == league and card_data["season"] == season:
+        st.write(f"Card Data for ID {card_id}: {card_data}")
+        
+        if card_data[7] and card_data[3] == league and card_data[4] == season:
             try:
                 tx_hash = player_card_contract.functions.updateFantasyPoints(card_id, fantasy_points).transact({'from': address})
                 receipt = w3.eth.waitForTransactionReceipt(tx_hash)
@@ -193,44 +202,60 @@ def update_fantasy_points():
             response_data = api_response.json()
             if player_name in response_data:
                 fantasy_points = response_data[player_name]["Fantasy Points"]
-                update_fantasy_points_on_chain(player_name, fantasy_points)
+                st.write(response_data)
+                update_fantasy_points_on_chain(player_name, league, season, fantasy_points)
             else:
                 st.error(f"Error fetching data for {player_name}")
         else:
             st.error(f"API error (Status {api_response.status_code}): {api_response.text}")
 
 # ===================== Display All Registered Players =====================
-def display_all_players():
-    st.markdown("## List of Registered Players")
+def get_all_players():
+    player_list = []
     for player_address in w3.eth.accounts:
         if player_registration_contract.functions.isPlayerRegistered(player_address).call():
             player_info = player_registration_contract.functions.playerInfos(player_address).call()
             player_data_hash = player_info[1]  # Assuming ipfsHash is the second item in the struct
             player_data = fetch_from_ipfs(player_data_hash)
-            
-            st.write(f"Player Number: {player_info[0]}")  # Assuming playerNumber is the first item in the struct
-            st.write(f"Player Name: {player_data['name']} {player_data['lastName']}")
-            st.write(f"DOB: {player_data['dob']}")
-            st.write(f"Nationality: {player_data['nationality']}")
-            st.write("----")
+            full_name = f"{player_data['name']} {player_data['lastName']}"
+            player_list.append(full_name)
+    return player_list
 
 # ===================== Display All Minted Cards =====================
-def display_all_cards():
-    st.markdown("## List of All Minted Player Cards")
+def get_all_cards():
+    card_list = []
     all_card_ids = player_card_contract.functions.getAllCardIds().call()
-
     for card_id in all_card_ids:
         card_data = player_card_contract.functions.cards(card_id).call()
         player_address = card_data[0]  # Assuming the playerAddress is the first item in the struct
         player_info_hash = player_registration_contract.functions.playerInfos(player_address).call()[1]  # ipfsHash is the second item
         player_info = fetch_from_ipfs(player_info_hash)
+        full_name = f"{player_info['name']} {player_info['lastName']}"
+        card_list.append(f"Card ID: {card_id} | Player Name: {full_name}")
+    return card_list
+
+# ===================== Get Cards for a Specific Player =====================
+def get_cards_for_player(player_name=None):
+    card_list = []
+    all_card_ids = player_card_contract.functions.getAllCardIds().call()
+    
+    for card_id in all_card_ids:
+        card_data = player_card_contract.functions.cards(card_id).call()
+        player_address = card_data[0]
+        player_info_hash = player_registration_contract.functions.playerInfos(player_address).call()[1]
+        player_info = fetch_from_ipfs(player_info_hash)
+        full_name = f"{player_info['name']} {player_info['lastName']}"
         
-        st.write(f"Card ID: {card_id}")
-        st.write(f"Player Name: {player_info['name']} {player_info['lastName']}")
-        st.write(f"Team: {card_data[1]}")  # Assuming team is the second item in the Card struct
-        st.write(f"Position: {card_data[2]}")  # and so on for the other attributes...
-        st.write(f"Fantasy Points: {card_data[6]}")  # Assuming fantasyPoints is the seventh item in the Card struct
-        st.write("----")
+        if not player_name or player_name == full_name:
+            card_list.append(f"Card ID: {card_id} | Player Name: {full_name}")
+
+    return card_list
+
+def get_fantasy_points_for_card(card_entry):
+    card_id = int(card_entry.split(" | ")[0].split(": ")[1])
+    card_data = player_card_contract.functions.cards(card_id).call()
+    fantasy_points = card_data[6]
+    return fantasy_points
 
 # ===================== Main Streamlit App =====================
 st.title("Fantasy Soccer Player Registration")
@@ -238,6 +263,18 @@ st.title("Fantasy Soccer Player Registration")
 # Sidebar
 st.sidebar.header("Account")
 address = st.sidebar.selectbox("Select Account", options=w3.eth.accounts)
+
+# Drop-downs for viewing registered players
+all_players = get_all_players()
+selected_player = st.selectbox("List of Registered Players", options=all_players)
+
+# Drop-downs for viewing minted cards specific to the selected player
+all_cards_for_player = get_cards_for_player(selected_player)
+selected_card = st.selectbox("List of All Minted Player Cards for the Selected Player", options=all_cards_for_player)
+
+# Display fantasy points for the selected card
+fantasy_points = get_fantasy_points_for_card(selected_card)
+st.write(f"Fantasy Points for selected card: {fantasy_points}")
 
 is_registered = player_registration_contract.functions.isPlayerRegistered(address).call()
 REGISTRAR_ROLE = player_registration_contract.functions.REGISTRAR_ROLE().call()
@@ -252,9 +289,3 @@ if is_registered:
 elif is_waitlisted:
     register_player()
     st.success(f"Your player number is: {player_registration_contract.functions.playerInfos(address).call()[0]}")
-
-display_all_players()
-display_all_cards() 
-
-# Update the mapping when the app starts
-card_id_to_player_details = fetch_player_data_for_all_cards()
