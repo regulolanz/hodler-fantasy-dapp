@@ -18,7 +18,7 @@ def fetch_player_data_from_s3(bucket_name, file_key):
 
 def lambda_handler(event, context):
     """Main AWS Lambda handler function."""
-    bucket_name = 'hodlersports'
+    bucket_name = os.getenv("BUCKET_NAME")
     file_key = 'hodlerfc.json'
 
     try:
