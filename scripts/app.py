@@ -1,12 +1,13 @@
 import os
 import json
+import requests
 import pycountry
 import phonenumbers
 from web3 import Web3
 import streamlit as st
 from pathlib import Path
+from decimal import Decimal
 from dotenv import load_dotenv
-import requests
 
 from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json, fetch_from_ipfs
 
@@ -16,6 +17,7 @@ w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
 # Constants
 MINTING_FEE_IN_USD = 50
+ETH_TO_USD_CONVERSION_RATE = 2000  # This should be dynamically fetched if possible
 position_options = ["GOA", "DEF", "MID", "STK"]
 league_options = ["UPSL_Division_1", "USSL_Elite", "PFL_Division_1"]
 season_options = ["2023_Spring", "2023_Fall"]
@@ -109,7 +111,7 @@ def register_player():
             tx_hash = player_registration_contract.functions.registerPlayer(player_data_hash).transact({'from': address, 'gas': gas_estimate})
 
             receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-            st.success("Player has been registered!")
+            st.success(f"Successfully registered as a player, welcome {player_name} {player_last_name}!")
             st.write(dict(receipt))
         except ValueError as ve:
             st.error(f"Transaction error: {ve}")
@@ -127,19 +129,31 @@ def mint_player_card():
     profile_picture = st.text_input("Profile picture URL or IPFS hash")
     fantasy_points = 0  # Initial value, user can't modify
 
-    current_eth_price = player_card_contract.functions.getCurrentPrice().call()
     required_fee_in_eth = player_card_contract.functions.calculateMintingFee().call()
 
     if st.button("Mint Card"):
         try:
             tx_hash = player_card_contract.functions.mintCard(team, position, league, season, profile_picture, fantasy_points).transact({'from': address, 'value': required_fee_in_eth})
             receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-            st.success("Player card minted!")
+            
+            # Calculate total ETH spent (the gas used times the gas price)
+            gas_used = receipt['gasUsed']
+            gas_price = w3.eth.gasPrice
+            eth_spent = Web3.fromWei(gas_used * gas_price, 'ether')
+            
+            # Fetch current ETH price from the contract
+            current_eth_price = Decimal(player_card_contract.functions.getCurrentPrice().call() / 1e8)
+            
+            # Convert ETH to USD using the fetched ETH price
+            usd_spent = Decimal(eth_spent) * current_eth_price
+            
+            st.success(f"Player card minted! You spent {eth_spent:.6f} ETH (~${usd_spent:.2f} USD).")
             st.write(dict(receipt))
+            
         except ValueError as ve:
             st.error(f"Transaction error: {ve}")
         except Exception as e:
-            st.error(f"An unexpected error occurred: {e}")
+            st.error(f"An unexpected error occurred: {e}")     
 
 # ===================== Fantasy Points Update =====================
 def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
@@ -255,6 +269,17 @@ st.title("Fantasy Soccer Player Registration")
 st.sidebar.header("Account")
 address = st.sidebar.selectbox("Select Account", options=w3.eth.accounts)
 
+is_registered = player_registration_contract.functions.isPlayerRegistered(address).call()
+REGISTRAR_ROLE = player_registration_contract.functions.REGISTRAR_ROLE().call()
+is_waitlisted = player_registration_contract.functions.playerInfos(address).call()[3]
+
+# If the user has registered, display their name in the sidebar
+if is_registered:
+    player_data_hash = player_registration_contract.functions.playerInfos(address).call()[1]
+    player_data = fetch_from_ipfs(player_data_hash)
+    full_name = f"{player_data['name']} {player_data['lastName']}"
+    st.sidebar.header(f"Welcome, {full_name}")
+
 # Drop-downs for viewing registered players
 all_players = get_all_players()
 selected_player = st.selectbox("List of Registered Players", options=all_players)
@@ -269,10 +294,6 @@ if isinstance(fantasy_points, int):
     st.write(f"Fantasy Points for selected card: {fantasy_points}")
 else:
     st.write(fantasy_points)
-
-is_registered = player_registration_contract.functions.isPlayerRegistered(address).call()
-REGISTRAR_ROLE = player_registration_contract.functions.REGISTRAR_ROLE().call()
-is_waitlisted = player_registration_contract.functions.playerInfos(address).call()[3]
 
 # Check if the connected address has the ADMIN_ROLE in the player_card_contract
 if player_card_contract.functions.hasRole(ADMIN_ROLE, address).call():
