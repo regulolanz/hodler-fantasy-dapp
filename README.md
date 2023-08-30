@@ -11,6 +11,7 @@ A decentralized fantasy soccer platform powered by Ethereum and IPFS. Users can 
 5. [Media Illustrations](#media-illustrations)
 6. [Quick Start & Configuration](#quick-start-and-configuration)
 7. [Feedback](#feedback)
+8. [Acknowledgments](#acknowledgments)
 
 ## Project Description
 
@@ -93,3 +94,27 @@ Note: Detailed configurations and environment settings have been intentionally l
 
 We value your feedback! If you have suggestions or find any issues, please report them. While we might not respond to each feedback entry, be assured that we regularly review the inputs and work on improving the platform.
 
+
+
+
+
+
+
+## Table of Contents
+
+1. [Project Description](#project-description)
+2. [Technologies and Tools Used](#technologies-and-tools-used)
+3. [Application Flow](#application-flow)
+4. [Roles and Permissions in the PlayerRegistration Contract](#roles-and-permissions-in-the-playerregistration-contract)
+5. [Media Illustrations](#media-illustrations)
+6. [Quick Start & Configuration](#quick-start-and-configuration)
+7. [Feedback](#feedback)
+8. [Acknowledgments](#acknowledgments)
+
+## Project Description
+
+The `hodler-fantasy-dapp` offers a blend of fantasy soccer and blockchain technology. Users own, trade, and compete using tokenized player cards. These cards are not static; their value and attributes (like fantasy points) can change based on real-world events, thanks to integration with Chainlink oracles.
+
+## Acknowledgments
+
+The fantasy points calculation in this project is inspired by [LaLiga Fantasy MARCA](https://fantasy.laliga.com/). LaLiga Fantasy MARCA is an online fantasy football platform where users pick players, prepare line-ups, and create a league. In the future, we may revise how fantasy points are calculated, but for the current version of this project, we've used the LaLiga Fantasy MARCA's system as a reference.
