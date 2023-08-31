@@ -16,7 +16,6 @@ load_dotenv('../SAMPLE.env')
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
 # Constants
-MINTING_FEE_IN_USD = 50
 ETH_TO_USD_CONVERSION_RATE = 2000  # This should be dynamically fetched if possible
 position_options = ["GOA", "DEF", "MID", "STK"]
 league_options = ["UPSL_Division_1", "USSL_Elite", "PFL_Division_1"]
@@ -262,6 +261,51 @@ def get_fantasy_points_for_card(card_entry):
     fantasy_points = card_data[6]
     return fantasy_points
 
+# ===================== Set Sale Price for Player Card =====================
+def set_sale_price_for_card():
+    st.markdown("## Set Sale Price for Your Card")
+    
+    # List the cards owned by the currently selected address
+    owned_token_count = player_card_contract.functions.balanceOf(address).call()
+    owned_cards = []
+    for i in range(owned_token_count):
+        token_id = player_card_contract.functions.tokenOfOwnerByIndex(address, i).call()
+        owned_cards.append(f"Card ID: {token_id}")
+    
+    if not owned_cards:
+        st.write("You don't own any cards.")
+        return
+    
+    selected_card = st.selectbox("Select one of your cards to set its sale price", options=owned_cards)
+    sale_price_in_eth = st.number_input("Enter the sale price (in ETH)", min_value=0.0)
+    
+    if st.button("Set Sale Price"):
+        card_id = int(selected_card.split(": ")[1])
+        sale_price_in_wei = Web3.toWei(sale_price_in_eth, 'ether')
+        tx_hash = player_card_contract.functions.setSalePrice(card_id, sale_price_in_wei).transact({'from': address})
+        receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+        st.success(f"Sale price set for card ID {card_id}!")
+        st.write(dict(receipt))
+
+# ===================== Display All Cards for Sale =====================
+def display_cards_for_sale():
+    st.markdown("## Cards Currently for Sale")
+    
+    all_card_ids = player_card_contract.functions.getAllCardIds().call()
+    cards_for_sale = []
+
+    for card_id in all_card_ids:
+        card_data = player_card_contract.functions.cards(card_id).call()
+        sale_price = card_data[8]  # Assuming salePrice is the ninth item in the struct
+        if sale_price > 0:
+            sale_price_in_eth = Web3.fromWei(sale_price, 'ether')
+            cards_for_sale.append(f"Card ID: {card_id} | Sale Price: {sale_price_in_eth} ETH")
+    
+    if cards_for_sale:
+        st.selectbox("Select a card to view its sale price", options=cards_for_sale)
+    else:
+        st.write("No cards are currently for sale.")
+
 # ===================== Main Streamlit App =====================
 st.title("Fantasy Soccer Player Registration")
 
@@ -301,6 +345,8 @@ if player_card_contract.functions.hasRole(ADMIN_ROLE, address).call():
 
 if is_registered:
     mint_player_card()
+    set_sale_price_for_card()
+    display_cards_for_sale()
 elif is_waitlisted:
     register_player()
     st.success(f"Your player number is: {player_registration_contract.functions.playerInfos(address).call()[0]}")

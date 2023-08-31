@@ -64,6 +64,7 @@ This section provides visual aids to understand deployment and user interactions
 - [Mint Player Card in Streamlit Video](resources/videos/Mint_PlayerCard_Streamlit.mp4)
 - [Updating Fantasy Points in Streamlit Video](resources/videos/Update_Fantasy_Points.mp4)
 - [Screenshot of Updated Fantasy Points](resources/images/FantasyPoints_Updated.png)
+- [Set Sale Price in Streamlit Video](resources/videos/Set_SalePrice_Streamlit.mp4)
 
 ## Roles and Permissions
 
