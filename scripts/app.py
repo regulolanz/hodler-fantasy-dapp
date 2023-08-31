@@ -16,7 +16,6 @@ load_dotenv('../SAMPLE.env')
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
 # Constants
-ETH_TO_USD_CONVERSION_RATE = 2000  # This should be dynamically fetched if possible
 position_options = ["GOA", "DEF", "MID", "STK"]
 league_options = ["UPSL_Division_1", "USSL_Elite", "PFL_Division_1"]
 season_options = ["2023_Spring", "2023_Fall"]
@@ -120,6 +119,11 @@ def register_player():
 # ===================== Player Card Minting =====================
 def mint_player_card():
     st.markdown("## Mint a Player Card")
+
+    # Display the current minting fee
+    current_minting_fee = player_card_contract.functions.calculateMintingFee().call()
+    current_eth_price = Decimal(player_card_contract.functions.getCurrentPrice().call() / 1e8)
+    st.write(f"The current minting fee is: {Web3.fromWei(current_minting_fee, 'ether'):.10f} ETH (~${Decimal(Web3.fromWei(current_minting_fee, 'ether') * current_eth_price):.5f} USD)")
     
     team = st.selectbox("Select player's team", options=team_options, key="mint_team")
     position = st.selectbox("Select player's position", options=position_options, key="mint_position")
@@ -135,24 +139,23 @@ def mint_player_card():
             tx_hash = player_card_contract.functions.mintCard(team, position, league, season, profile_picture, fantasy_points).transact({'from': address, 'value': required_fee_in_eth})
             receipt = w3.eth.waitForTransactionReceipt(tx_hash)
             
-            # Calculate total ETH spent (the gas used times the gas price)
+            # Calculate ETH spent on gas
             gas_used = receipt['gasUsed']
             gas_price = w3.eth.gasPrice
-            eth_spent = Web3.fromWei(gas_used * gas_price, 'ether')
+            eth_spent_on_gas = Web3.fromWei(gas_used * gas_price, 'ether')
+            usd_spent_on_gas = Decimal(eth_spent_on_gas) * current_eth_price
             
-            # Fetch current ETH price from the contract
-            current_eth_price = Decimal(player_card_contract.functions.getCurrentPrice().call() / 1e8)
-            
-            # Convert ETH to USD using the fetched ETH price
-            usd_spent = Decimal(eth_spent) * current_eth_price
-            
-            st.success(f"Player card minted! You spent {eth_spent:.6f} ETH (~${usd_spent:.2f} USD).")
+            # Calculate total ETH and USD spent
+            total_eth_spent = eth_spent_on_gas + Web3.fromWei(required_fee_in_eth, 'ether')
+            total_usd_spent = usd_spent_on_gas + Decimal(Web3.fromWei(required_fee_in_eth, 'ether') * current_eth_price)
+
+            st.success(f"Player card minted! Total spent: {total_eth_spent:.6f} ETH. This includes a minting fee of {Web3.fromWei(required_fee_in_eth, 'ether'):.6f} ETH and gas fees of {eth_spent_on_gas:.6f} ETH. Total in USD: $ {total_usd_spent:.2f}.")
             st.write(dict(receipt))
             
         except ValueError as ve:
             st.error(f"Transaction error: {ve}")
         except Exception as e:
-            st.error(f"An unexpected error occurred: {e}")     
+            st.error(f"An unexpected error occurred: {e}")    
 
 # ===================== Fantasy Points Update =====================
 def update_fantasy_points_on_chain(player_name, league, season, fantasy_points):
@@ -306,6 +309,11 @@ def display_cards_for_sale():
     else:
         st.write("No cards are currently for sale.")
 
+# ===================== Display Current ETH Price in Sidebar =====================
+def display_current_eth_price():
+    current_eth_price = Decimal(player_card_contract.functions.getCurrentPrice().call() / 1e8)
+    st.sidebar.write(f"The current price of ETH is: ${current_eth_price:.2f} USD")
+
 # ===================== Main Streamlit App =====================
 st.title("Fantasy Soccer Player Registration")
 
@@ -323,6 +331,9 @@ if is_registered:
     player_data = fetch_from_ipfs(player_data_hash)
     full_name = f"{player_data['name']} {player_data['lastName']}"
     st.sidebar.header(f"Welcome, {full_name}")
+
+# Display the current ETH price and expected minting fee in the sidebar
+display_current_eth_price()
 
 # Drop-downs for viewing registered players
 all_players = get_all_players()

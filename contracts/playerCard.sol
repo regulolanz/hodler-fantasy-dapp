@@ -37,10 +37,13 @@ contract PlayerCard is ERC721Enumerable, AccessControl, Pausable {
     // Reference to the PlayerRegistration contract
     PlayerRegistration playerRegistry;
 
-    uint256 public constant MINTING_FEE_IN_USD = 50;
+    uint256 public constant MINTING_FEE_IN_USD = 30;
 
     // Array to store all minted card IDs
     uint256[] public allCardIds;
+
+    // State variable to store contract owner's address
+    address public owner;
 
     // Events to notify frontend applications
     event CardMinted(address indexed player, uint256 cardId);
@@ -61,16 +64,22 @@ contract PlayerCard is ERC721Enumerable, AccessControl, Pausable {
         // Setup roles
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _setupRole(ADMIN_ROLE, msg.sender);
+
+        // Initialize contract owner's address
+        owner = msg.sender;
     }
 
-     // Function to mint a new player card
+    // Function to mint a new player card
     function mintCard(string memory team, string memory position, string memory league, string memory season, string memory profilePicture, uint256 fantasyPoints) public payable whenNotPaused {
         require(playerRegistry.isPlayerRegistered(msg.sender), "Player is not registered");
         
         uint256 currentEthPriceInUsd = getCurrentPrice();
-        uint256 requiredFeeInEth = (MINTING_FEE_IN_USD * 1 ether) / currentEthPriceInUsd;
+        uint256 requiredFeeInEth = (MINTING_FEE_IN_USD * 1 ether) / (currentEthPriceInUsd / 1e8);
 
         require(msg.value == requiredFeeInEth, "Incorrect minting fee sent");
+
+        // Transfer the minting fee to the contract owner
+        payable(owner).transfer(requiredFeeInEth);
 
         // Update the player's minted card count
         playerToMintedCount[msg.sender]++;
@@ -96,7 +105,7 @@ contract PlayerCard is ERC721Enumerable, AccessControl, Pausable {
         _mint(msg.sender, newCardId);
         emit CardMinted(msg.sender, newCardId);
 
-        payable(msg.sender).transfer(msg.value);  // Refund any extra sent ether
+        payable(msg.sender).transfer(msg.value - requiredFeeInEth);  // Refund any extra sent ether
     }
 
     // Function to retrieve all minted card IDs
@@ -149,12 +158,11 @@ contract PlayerCard is ERC721Enumerable, AccessControl, Pausable {
     // Function to calculate the minting fee in ETH based on current ETH price
     function calculateMintingFee() public view returns (uint256) {
         uint256 currentEthPriceInUsd = getCurrentPrice();
-        return (MINTING_FEE_IN_USD * 1e18) / currentEthPriceInUsd;
-    }
+        return (MINTING_FEE_IN_USD * 1e18) / (currentEthPriceInUsd / 1e8);
+    } 
 
     // Overridden function to ensure compatibility with ERC721Enumerable and AccessControl
     function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721Enumerable, AccessControl) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 }
-
